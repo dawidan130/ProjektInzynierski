@@ -20,15 +20,77 @@
             <a class="tekst_nazwa" style="font-weight: bold;">Internetowa Pięlegnacja Oczu</a>
         </div>
         <div class="przyciski_glowna">
-            <button> Logowanie </button>
-            <button> Rejestracja </button>
+            <button id="logowanie"> Logowanie </button>
+            <button id="rejestrowanie"> Rejestracja </button>
         </div>
         <div>
             <a class="tekst_nazwa" style="font-style: italic; font-size: 20px;">Dbajmy o swój wzrok by móc dostrzec piękno tego świata!</a>
         </div>
     </div>
     <div class="kontyner">
+        <div id="oknoLogowania" class="oknoDanych">
+            <div class="formularzDanych">
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" placeholder="Wprowadź login">
 
+                <label for="haslo_log">Hasło:</label>
+                <input type="password" id="haslo_log" name="haslo_log" placeholder="Wprowadź hasło">
+
+                <div class="przyciskiFormularza">
+                    <button id="zaloguj">Zaloguj</button>
+                    <button id="anuluj_z">Anuluj</button>
+                </div>
+            </div>
+        </div>
+        <div id="oknoRejestrowania" class="oknoDanych">
+            <div class="formularzDanych">
+                <label for="e_mail">E-mail:</label>
+                <input type="text" id="e_mail" name="e_mail" placeholder="Wprowadź e-mail">
+
+                <label for="haslo_rej">Hasło:</label>
+                <input type="password" id="haslo_rej" name="haslo_rej" placeholder="Wprowadź hasło">
+
+                <label for="pothaslo">Potwierdź hasło:</label>
+                <input type="password" id="pothaslo" name="pothaslo" placeholder="Wprowadź ponownie hasło">
+
+                <label for="pseudonim">Pseudonim:</label>
+                <input type="text" id="pseudonim" name="pseudonim" placeholder="Wprowadź pseudonim">
+
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" placeholder="Wprowadź imię">
+
+                <label for="nazwisko">Nazwisko:</label>
+                <input type="text" id="nazwisko" name="nazwisko" placeholder="Wprowadź nazwisko">
+
+                <label for="data_urodzenia">Podaj datę urodzenia:</label>
+                <input type="date" id="data_urodzenia" name="data_urodzenia" placeholder="Wprowadź datę urodzenia">
+
+                <div class="przyciskiFormularza">
+                    <button id="zarejestruj">Zarejestruj</button>
+                    <button id="anuluj_r">Anuluj</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    document.getElementById('logowanie').addEventListener('click', function () {
+        document.getElementById('oknoLogowania').style.display = 'flex';
+    });
+
+    document.getElementById('rejestrowanie').addEventListener('click', function () {
+        document.getElementById('oknoRejestrowania').style.display = 'flex';
+    });
+
+    document.getElementById('anuluj_z').addEventListener('click', function () {
+        document.getElementById('oknoLogowania').style.display = 'none';
+    });
+
+    document.getElementById('anuluj_r').addEventListener('click', function () {
+        document.getElementById('oknoRejestrowania').style.display = 'none';
+    });
+</script>
