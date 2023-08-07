@@ -1,24 +1,86 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: Bahnschrift;
+    color: #87CEFA;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
+
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/*Strona głowna*/
+
+.body_glowna {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/Obrazy/tlo.png'), url('/Obrazy/oko.jpg');
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 50% 100%, auto 100%;
+}
+
+.tekst_logo {
+    font-size: 200px;
+}
+
+.tekst_nazwa {
+    font-size: 25px;
+}
+
+.kontyner_logo img {
+    max-height: 145px;
+    animation: obrot 5s linear infinite;
+}
+
+@keyframes obrot {
+
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kontyner {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.przyciski_glowna {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5%;
+}
+
+.przyciski_glowna button {
+    flex: 1;
+    max-width: 300px;
+    height: 50px;
+    background-color: #182849;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #4682B4;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+    font-size: 15px;
+}
+
+.przyciski_glowna button:hover {
+    background-color: #4682B4;
 }
