@@ -30,11 +30,15 @@
     <div class="kontyner">
         <div id="oknoLogowania" class="oknoDanych">
             <div class="formularzDanych">
+                <div style="padding-top: 10px; text-decoration: underline;" onclick="przejdz_rejestracja()">Nie masz konta? Przejdź do rejestracji</div>
+
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" placeholder="Wprowadź login">
 
                 <label for="haslo_log">Hasło:</label>
                 <input type="password" id="haslo_log" name="haslo_log" placeholder="Wprowadź hasło">
+
+                <div id="komunikat_logowanie" style="padding-top: 10px;"></div>
 
                 <div class="przyciskiFormularza">
                     <button id="zaloguj">Zaloguj</button>
@@ -44,14 +48,18 @@
         </div>
         <div id="oknoRejestrowania" class="oknoDanych">
             <div class="formularzDanych">
-                <label for="e_mail">E-mail:</label>
+                <div style="padding-top: 10px; text-decoration: underline;" onclick="przejdz_logowanie()">Masz już konto? Przejdź do logowania</div>
+
+                <label for="e_mail">*E-mail:</label>
                 <input type="text" id="e_mail" name="e_mail" placeholder="Wprowadź e-mail">
 
-                <label for="haslo_rej">Hasło:</label>
+                <label for="haslo_rej">*Hasło:</label>
                 <input type="password" id="haslo_rej" name="haslo_rej" placeholder="Wprowadź hasło">
 
-                <label for="pothaslo">Potwierdź hasło:</label>
+                <label for="pothaslo">*Potwierdź hasło:</label>
                 <input type="password" id="pothaslo" name="pothaslo" placeholder="Wprowadź ponownie hasło">
+
+                <div id="komunikat_hasla" style="padding-top: 10px;"></div>
 
                 <label for="pseudonim">Pseudonim:</label>
                 <input type="text" id="pseudonim" name="pseudonim" placeholder="Wprowadź pseudonim">
@@ -64,6 +72,8 @@
 
                 <label for="data_urodzenia">Podaj datę urodzenia:</label>
                 <input type="date" id="data_urodzenia" name="data_urodzenia" placeholder="Wprowadź datę urodzenia">
+
+                <div id="komunikat_rejestrowanie" style="padding-top: 10px;">*pola obowiązkowe</div>
 
                 <div class="przyciskiFormularza">
                     <button id="zarejestruj">Zarejestruj</button>
@@ -78,19 +88,128 @@
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script>
+    //Logowanie
     document.getElementById('logowanie').addEventListener('click', function () {
         document.getElementById('oknoLogowania').style.display = 'flex';
     });
 
-    document.getElementById('rejestrowanie').addEventListener('click', function () {
+    function przejdz_rejestracja() {
+        document.getElementById('anuluj_z').click();
         document.getElementById('oknoRejestrowania').style.display = 'flex';
+    }
+
+    const loginInput = document.getElementById("login");
+    const hasloInput = document.getElementById("haslo_log");
+    const komunikatL = document.getElementById("komunikat_logowanie");
+
+    document.getElementById('zaloguj').addEventListener('click', function () {
+        //GET z bazy czy istnieje taki mail
+
+        //rozwiązanie tymczasowe bez bazy danych (ma na celu stworzenie komunikatów błędów, funkcjonalność logowania prawdopodobnie będzie działać na innej zasadzie)
+        let testowylogin = "testowymail@gmail.com";
+
+        if (loginInput.value === testowylogin) {
+            komunikatL.style.color = "green";
+            komunikatL.textContent = "Zalogowano pomyślnie!";
+        } else {
+            komunikatL.style.color = "red";
+            komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
+        }
+        //póki co dwie opcje ewentualna rozbudowa (np. brak "małpy" w loginie, nieistniejący login, błędne hasło)
     });
 
     document.getElementById('anuluj_z').addEventListener('click', function () {
         document.getElementById('oknoLogowania').style.display = 'none';
+        loginInput.value = "";
+        hasloInput.value = "";
+        komunikatL.textContent = "";
+    });
+
+    //Rejestrowanie
+    document.getElementById('rejestrowanie').addEventListener('click', function () {
+        document.getElementById('oknoRejestrowania').style.display = 'flex';
+    });
+
+    function przejdz_logowanie() {
+        document.getElementById('anuluj_r').click();
+        document.getElementById('oknoLogowania').style.display = 'flex';
+    }
+
+    const mailInput = document.getElementById("e_mail");
+    const hasloRejInput = document.getElementById("haslo_rej");
+    const pothasRejInput = document.getElementById("pothaslo");
+    const pseudoInput = document.getElementById("pseudonim");
+    const imieInput = document.getElementById("imie");
+    const nazwiskoInput = document.getElementById("nazwisko");
+    const dataInput = document.getElementById("data_urodzenia");
+    const komunikatH = document.getElementById("komunikat_hasla");
+    const komunikatR = document.getElementById("komunikat_rejestrowanie");
+
+    //Sprawdzanie potwierdzenia hasła
+    hasloRejInput.addEventListener("input", sprawdzHasla);
+    pothasRejInput.addEventListener("input", sprawdzHasla);
+
+    function sprawdzHasla() {
+
+        let haslo = hasloRejInput.value;
+        let pothaslo = pothasRejInput.value;
+
+        if (haslo !== pothaslo) {
+            komunikatH.style.color = "red";
+            komunikatH.textContent = "Hasła są różne";
+        }
+        else {
+            komunikatH.style.color = "green";
+            komunikatH.textContent = "Hasła są poprawne";
+        }
+    }
+
+    document.getElementById('zarejestruj').addEventListener('click', function () {
+        let email = mailInput.value;
+        let haslo = hasloRejInput.value;
+        let pothaslo = pothasRejInput.value;
+        let data = new Date(dataInput.value);
+        let dzisiaj = new Date();
+
+        if (email === "" || haslo === "" || pothaslo === "") {
+            komunikatR.style.color = "red";
+            komunikatR.textContent = "Puste pola są obowiązkowe!";
+            return;
+        }
+
+        if (!email.includes("@@")) {
+            komunikatR.style.color = "red";
+            komunikatR.textContent = "Błędny adres e-mail!";
+            return;
+        }
+
+        if (haslo !== pothaslo) {
+            komunikatR.style.color = "red";
+            komunikatR.textContent = "Hasła są różne!";
+            return;
+        }
+
+        if (data >= dzisiaj) {
+            komunikatR.style.color = "red";
+            komunikatR.textContent = "Błędna data urodzenia!";
+            return;
+        }
+
+        komunikatR.style.color = "green";
+        komunikatR.textContent = "Pomyślnie zarejestrowano!";
     });
 
     document.getElementById('anuluj_r').addEventListener('click', function () {
         document.getElementById('oknoRejestrowania').style.display = 'none';
+        mailInput.value = "";
+        hasloRejInput.value = "";
+        pothasRejInput.value = "";
+        pseudoInput.value = "";
+        imieInput.value = "";
+        nazwiskoInput.value = "";
+        dataInput.value = "";
+        komunikatH.textContent = "";
+        komunikatR.style.color = "#87CEFA";
+        komunikatR.textContent = "*pola obowiązkowe";
     });
 </script>
