@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('/Obrazy/tlo.png'), url('/Obrazy/oko.jpg');
+    background-image: linear-gradient(to right, #4B6CB7, #182848), url('/Obrazy/oko.jpg');
     background-position: left center, right center;
     background-repeat: no-repeat, no-repeat;
     background-size: 50% 100%, auto 100%;
@@ -79,6 +79,7 @@
     font-family: Bahnschrift;
     color: #87CEFA;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .przyciski_glowna button:hover {
@@ -165,8 +166,116 @@
     font-family: Bahnschrift;
     color: #87CEFA;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .przyciskiFormularza button:hover {
     background-color: #4682B4;
+}
+
+/*Menu główne*/
+
+/*.body_menu {
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right, #182848, #4B6CB7);
+}
+
+.pasek {
+    max-width: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #4B6CB7, #182848);
+    padding: 10px;
+}
+
+.lewo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.lewo img {
+    max-height: 50px;
+    cursor: pointer;
+}
+
+.prawo img {
+    max-height: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.prawo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.kontyner-oko {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+}
+
+.oko {
+    transition: transform 0.2s ease;
+    max-width: 200px;
+}*/
+
+.body_menu {
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right, #182848, #4B6CB7);
+}
+
+.pasek {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #4B6CB7, #182848);
+    padding: 10px;
+}
+
+.lewo, .prawo {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: default;
+}
+
+.prawo img {
+    max-height: 50px;
+    cursor: pointer;
+    margin-left: auto;
+    transition: linear 0.3s;
+}
+
+.prawo img:hover {
+    transform: scale(125%);
+}
+
+.lewo img {
+    max-height: 75px;
+    cursor: default;
+}
+
+.kontyner-oko {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    transform: rotate(-45deg);
+}
+
+.oko {
+    transition: transform 0.2s ease;
+    max-width: 200px;
 }

@@ -30,7 +30,7 @@
     <div class="kontyner">
         <div id="oknoLogowania" class="oknoDanych">
             <div class="formularzDanych">
-                <div style="padding-top: 10px; text-decoration: underline;" onclick="przejdz_rejestracja()">Nie masz konta? Przejdź do rejestracji</div>
+                <div style="padding-top: 10px; text-decoration: underline; cursor: pointer;" onclick="przejdz_rejestracja()">Nie masz konta? Przejdź do rejestracji</div>
 
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" placeholder="Wprowadź login">
@@ -48,7 +48,7 @@
         </div>
         <div id="oknoRejestrowania" class="oknoDanych">
             <div class="formularzDanych">
-                <div style="padding-top: 10px; text-decoration: underline;" onclick="przejdz_logowanie()">Masz już konto? Przejdź do logowania</div>
+                <div style="padding-top: 10px; text-decoration: underline; cursor: pointer;" onclick="przejdz_logowanie()">Masz już konto? Przejdź do logowania</div>
 
                 <label for="e_mail">*E-mail:</label>
                 <input type="text" id="e_mail" name="e_mail" placeholder="Wprowadź e-mail">
@@ -107,11 +107,15 @@
 
         //rozwiązanie tymczasowe bez bazy danych (ma na celu stworzenie komunikatów błędów, funkcjonalność logowania prawdopodobnie będzie działać na innej zasadzie)
         let testowylogin = "testowymail@gmail.com";
+        let testowylogin2 = "123";
 
-        if (loginInput.value === testowylogin) {
+        if (loginInput.value === testowylogin || loginInput.value === testowylogin2) {
             komunikatL.style.color = "green";
             komunikatL.textContent = "Zalogowano pomyślnie!";
-        } else {
+
+            setTimeout(Zaloguj, 1000);
+        }
+        else {
             komunikatL.style.color = "red";
             komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
         }
@@ -124,6 +128,10 @@
         hasloInput.value = "";
         komunikatL.textContent = "";
     });
+
+    function Zaloguj() {
+        window.location.href = "/Home/MenuGłówne";
+    }
 
     //Rejestrowanie
     document.getElementById('rejestrowanie').addEventListener('click', function () {
@@ -197,6 +205,8 @@
 
         komunikatR.style.color = "green";
         komunikatR.textContent = "Pomyślnie zarejestrowano!";
+
+        setTimeout(przejdz_logowanie, 1000);
     });
 
     document.getElementById('anuluj_r').addEventListener('click', function () {

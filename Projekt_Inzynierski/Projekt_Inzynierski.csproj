@@ -140,13 +140,17 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Obrazy\logo.png" />
+    <Content Include="Obrazy\logout.png" />
     <Content Include="Obrazy\oko.jpg" />
     <Content Include="Obrazy\oko2.jpg" />
+    <Content Include="Obrazy\opcje.png" />
+    <Content Include="Obrazy\stat.png" />
     <Content Include="Obrazy\tlo.png" />
     <Content Include="Obrazy\tło.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\funkcje.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -169,6 +173,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\StronaGłówna.cshtml" />
+    <Content Include="Views\Home\MenuGłówne.cshtml" />
+    <Content Include="Views\Home\Statystyki.cshtml" />
+    <Content Include="Views\Home\Ustawienia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
