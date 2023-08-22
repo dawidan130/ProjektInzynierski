@@ -175,58 +175,6 @@
 
 /*Menu główne*/
 
-/*.body_menu {
-    padding: 0;
-    margin: 0;
-    background-image: linear-gradient(to right, #182848, #4B6CB7);
-}
-
-.pasek {
-    max-width: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-image: linear-gradient(to right, #4B6CB7, #182848);
-    padding: 10px;
-}
-
-.lewo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 10px;
-}
-
-.lewo img {
-    max-height: 50px;
-    cursor: pointer;
-}
-
-.prawo img {
-    max-height: 50px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.prawo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 10px;
-}
-
-.kontyner-oko {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-}
-
-.oko {
-    transition: transform 0.2s ease;
-    max-width: 200px;
-}*/
 
 .body_menu {
     padding: 0;
@@ -265,17 +213,74 @@
     cursor: default;
 }
 
-.kontyner-oko {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    margin: 50px auto;
-    transform: rotate(-45deg);
+.kontener-ikony {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+    margin-top: 150px;
+    animation: powiekszenie 2s ease-out;
 }
 
-.oko {
-    transition: transform 0.2s ease;
+@keyframes powiekszenie {
+    from {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zmniejszenie {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
+
+.ikona {
+    max-height: 300px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.ikona a {
+    font-size: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ikona img {
+    margin-top: 20px;
     max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.ikona2 {
+    max-height: 150px;
+    max-width: 150px;
+    text-align: center;
+}
+
+.ikona2 a {
+    font-size: 15px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ikona2 img {
+    margin-top: 15px;
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
 }

@@ -23,9 +23,72 @@
         </div>
     </div>
 
+    <div class="kontener-ikony">
+        <div class="ikona">
+            <a id="textkolor">Testy kolorystyczne</a>
+            <img src="~/Obrazy/testkolory.png" style="animation: obrot 10s linear infinite;" onclick="pokaztesty('kolory')">
+        </div>
+        <div class="ikona">
+            <a id="textruch">Testy ruchowo-wzrokowe</a>
+            <img src="~/Obrazy/testruch.png" onclick="pokaztesty('ruchy')">
+        </div>
+        <div class="ikona">
+            <a>Test ostrości widzenia</a>
+            <img src="~/Obrazy/testostrosc.png">
+        </div>
+    </div>
+
+    <div id="testynowe" class="kontener-ikony" style="animation: none;">
+
+    </div>
+
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    let aktualneikony = "";
+
+    function pokaztesty(zmienna) {
+        if (zmienna === aktualneikony) {
+            return;
+        }
+
+        document.getElementById('testynowe').style.animation = 'zmniejszenie 1s ease-out';
+
+        setTimeout(() => {
+            if (zmienna === 'kolory') {
+                document.getElementById('textruch').style.textDecoration = 'none';
+                document.getElementById('testynowe').innerHTML = koloryHTML();
+                document.getElementById('textkolor').style.textDecoration = 'underline';
+                aktualneikony = zmienna;
+            }
+            else if (zmienna === 'ruchy') {
+                document.getElementById('textkolor').style.textDecoration = 'none';
+                document.getElementById('testynowe').innerHTML = ruchyHTML();
+                document.getElementById('textruch').style.textDecoration = 'underline';
+                aktualneikony = zmienna;
+            }
+
+            document.getElementById('testynowe').style.animation = 'powiekszenie 2s ease-out';
+        }, 1000);
+    }
+
+    function koloryHTML() {
+        let str = '';
+        str += '<div class="ikona2"><a>Tablice Ishary</a><img src="/Obrazy/ishara.png"></div>';
+        str += '<div class="ikona2"><a>Rozróżnianie barw</a><img src="/Obrazy/barwy.png"></div>';
+        return str;
+    }
+
+    function ruchyHTML() {
+        let str = '';
+        str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/sledzenie.png"></div>';
+        str += '<div class="ikona2"><a>Czas reakcji</a><img src="/Obrazy/czas.png"></div>';
+        str += '<div class="ikona2"><a>Wyszukiwanie obiektu</a><img src="/Obrazy/szukanie.png"></div>';
+        return str;
+    }
+</script>
