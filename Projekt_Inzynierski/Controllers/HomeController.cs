@@ -27,5 +27,35 @@ namespace Projekt_Inzynierski.Controllers
         {
             return View();
         }
+
+        public ActionResult TestOstrość()
+        {
+            return View();
+        }
+
+        public ActionResult TestIshary()
+        {
+            return View();
+        }
+
+        public ActionResult TestBarwy()
+        {
+            return View();
+        }
+
+        public ActionResult TestŚledzenie()
+        {
+            return View();
+        }
+
+        public ActionResult TestReakcja()
+        {
+            return View();
+        }
+
+        public ActionResult TestSzukanie()
+        {
+            return View();
+        }
     }
 }

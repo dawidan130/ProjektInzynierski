@@ -21,3 +21,7 @@ function ustawienia() {
 function menu() {
     window.location.href = "/Home/MenuGłówne";
 }
+
+function starttest(test) {
+    window.location.href = "/Home/" + test;
+}

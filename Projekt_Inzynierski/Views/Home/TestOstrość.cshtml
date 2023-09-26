@@ -1,0 +1,264 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <title>I.P.O - Test ostrości wzroku</title>
+</head>
+<body class="body_ostrosc">
+    <div class="kontyner_ostrosc">
+        <div class="tekst_ostrosc">Udziel odpowiedzi na poniższe pytania: </div>
+        <table class="tabela">
+            <tr>
+                <td>
+                    <a class="tekst">Ile krawędzi ma obiekt?</a>
+                    <div class="div_odp">
+                        <div id="obiekt" style="background-color: #87CEFA; max-width: 50px; min-height: 50px;"></div>
+                    </div>
+                    <div class="przyciski_odp" id="pytanie1">
+
+                    </div>
+                </td>
+                <td>
+                    <a>Co tutaj jest napisane?</a>
+                    <div class="div_odp" id="ciag_liter"></div>
+                    <div class="przyciski_odp" id="pytanie2">
+
+                    </div>
+                </td>
+                <td>
+                    <a>Jaka tutaj jest liczba?</a>
+                    <div class="div_odp" id="ciag_cyfr"></div>
+                    <div class="przyciski_odp" id="pytanie3">
+
+                    </div>
+                </td>
+                <td>
+                    <a>Co to jest za znak?</a>
+                    <div class="div_odp" id="znak"></div>
+                    <div class="przyciski_odp" id="pytanie4">
+
+                    </div>
+                </td>
+                <td>
+                    <a>Ile kropek jest poniżej?</a>
+                    <div class="div_odp" id="ciag_kropek"></div>
+                    <div class="przyciski_odp" id="pytanie5">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <button class="przycisk_wyniki" onclick="Wynik()">Pokaż wynik</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    //Pytanie nr 1
+
+    //Generowanie obiektu
+    let min = 3;
+    let max = 8;
+    let liczba = Math.floor(Math.random() * (max - min + 1)) + min;
+    let randomowyobiekt = 'obiekt' + liczba;
+    document.getElementById('obiekt').classList.add(randomowyobiekt);
+
+    //Generowanie odpowiedzi
+    document.getElementById('pytanie1').innerHTML = Generuj(1, liczba);
+
+    //Pytanie nr 2
+
+    //Generowanie losowego ciągu liter
+    const litery = 'abcdefghijklmnopqrstuvwxyz';
+    let losowyCiągLiter = '';
+
+    for (let i = 0; i < 5; i++) {
+        const losowyIndex = Math.floor(Math.random() * litery.length);
+        const losowaLitera = litery.charAt(losowyIndex);
+        losowyCiągLiter += losowaLitera;
+    }
+    document.getElementById('ciag_liter').innerHTML = losowyCiągLiter;
+
+    //Generowanie odpowiedzi
+    document.getElementById('pytanie2').innerHTML = Generuj(2, losowyCiągLiter);
+
+    //Pytanie nr 3
+
+    //Generowanie losowego ciągu cyfr
+    const liczby = '0123456789';
+    let losowyCiągCyfr = '';
+
+    for (let i = 0; i < 5; i++) {
+        const losowyIndex = Math.floor(Math.random() * liczby.length);
+        const losowaCyfra = liczby.charAt(losowyIndex);
+        losowyCiągCyfr += losowaCyfra;
+    }
+    document.getElementById('ciag_cyfr').innerHTML = losowyCiągCyfr;
+
+    //Generowanie odpowiedzi
+    document.getElementById('pytanie3').innerHTML = Generuj(3, losowyCiągCyfr);
+
+    //Pytanie nr 4
+
+    //Generowanie losowego ciągu znaków
+    const znaki = '?!#$%^&*()-=+<>\/[]{}';
+
+    const losowyIndex = Math.floor(Math.random() * znaki.length);
+    const losowyZnak = znaki.charAt(losowyIndex);
+
+    document.getElementById('znak').innerHTML = losowyZnak;
+
+    //Generowanie odpowiedzi
+    document.getElementById('pytanie4').innerHTML = Generuj(4, losowyZnak);
+
+    //Pytanie nr 5
+
+    //Generowanie kropek
+    let kropka = '. ';
+    let liczba_kropek = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let ciag_kropek = '';
+
+    for (let i = 0; i < liczba_kropek; i++) {
+        ciag_kropek += kropka;
+    }
+    ciag_kropek = ciag_kropek.slice(0, -1);
+
+    document.getElementById('ciag_kropek').innerHTML = ciag_kropek;
+
+    //Generowanie odpowiedzi
+    document.getElementById('pytanie5').innerHTML = Generuj(5, liczba_kropek);
+
+    function Generuj(nr,odp) {
+        switch (nr) {
+            case 1:
+                let zakres = [3, 4, 5, 6, 7, 8].filter(cyfra => cyfra !== odp);
+                let tablica_liczb = [odp];
+
+                while (tablica_liczb.length < 4) {
+                    const losowyIndex = Math.floor(Math.random() * zakres.length);
+                    const losowaCyfra = zakres.splice(losowyIndex, 1)[0];
+                    tablica_liczb.push(losowaCyfra);
+                }
+
+                return WynikiHTML(tablica_liczb, odp);
+
+            case 2:
+                const litery = 'abcdefghijklmnopqrstuvwxyz';
+                let tablica_ciagow_liter = [odp];
+
+                while (tablica_ciagow_liter.length < 4) {
+                    let losowyCiągLiter = '';
+                    for (let i = 0; i < 5; i++) {
+                        const losowyIndex = Math.floor(Math.random() * litery.length);
+                        const losowaLitera = litery.charAt(losowyIndex);
+                        losowyCiągLiter += losowaLitera;
+                    }
+                    tablica_ciagow_liter.push(losowyCiągLiter);
+                }
+
+                return WynikiHTML(tablica_ciagow_liter, odp);
+
+            case 3:
+                const liczby = '0123456789';
+                let tablica_ciagow_cyfr = [odp];
+
+                while (tablica_ciagow_cyfr.length < 4) {
+                    let losowyCiągCyfr = '';
+                    for (let i = 0; i < 5; i++) {
+                        const losowyIndex = Math.floor(Math.random() * liczby.length);
+                        const losowaCyfra = liczby.charAt(losowyIndex);
+                        losowyCiągCyfr += losowaCyfra;
+                    }
+                    tablica_ciagow_cyfr.push(losowyCiągCyfr);
+                }
+
+                return WynikiHTML(tablica_ciagow_cyfr, odp);
+
+            case 4:
+                const znaki = '?!#$%^&*()-=+<>\/[]{}';
+                let tablica_znakow = [odp];
+
+                while (tablica_znakow.length < 4) {
+                    let losowyZnak = '';
+
+                    const losowyIndex = Math.floor(Math.random() * znaki.length);
+                    losowyZnak = znaki.charAt(losowyIndex);
+
+                    if (!tablica_znakow.includes(losowyZnak)) {
+                        tablica_znakow.push(losowyZnak);
+                    }
+                }
+
+                return WynikiHTML(tablica_znakow, odp);
+
+            case 5:
+                let liczby_kropek = [3, 4, 5, 6, 7, 8].filter(kropka => kropka !== odp);
+                let tablica_kropek = [odp];
+
+                while (tablica_kropek.length < 4) {
+                    const losowyIndex = Math.floor(Math.random() * liczby_kropek.length);
+                    const losowaKropka = liczby_kropek.splice(losowyIndex, 1)[0];
+                    tablica_kropek.push(losowaKropka);
+                }
+
+                return WynikiHTML(tablica_kropek, odp);
+        }
+
+        function WynikiHTML(tablica, odp) {
+            //Przetasowanie tablicy z odpowiedziami
+            for (let i = tablica.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [tablica[i], tablica[j]] = [tablica[j], tablica[i]];
+            }
+
+            //Wpisanie odpowiedzi do przycisków
+            let str = "";
+
+            for (let i = 0; i < tablica.length; i++) {
+                if (tablica[i] === odp) {
+                    str += '<button id="1">' + tablica[i] + '</button>';
+                }
+                else {
+                    str += '<button id="0">' + tablica[i] + '</button>';
+                }
+            }
+            return str;
+        }
+    }
+
+    const przyciski = document.querySelectorAll('button[id]');
+
+    przyciski.forEach((przycisk) => {
+        przycisk.addEventListener('click', () => {
+            const kolumna = przycisk.parentElement;
+            const przyciskiWKolumnie = kolumna.querySelectorAll('button[id]');
+            przyciskiWKolumnie.forEach((innePrzyciski) => {
+                if (innePrzyciski !== przycisk) {
+                    innePrzyciski.classList.remove('aktywny');
+                }
+            });
+            przycisk.classList.toggle('aktywny');
+        });
+    });
+
+    const zakonczQuizButton = document.getElementById('zakonczQuiz');
+
+    function Wynik() {
+        const poprawneOdpowiedzi = document.querySelectorAll('button[id="1"].aktywny').length;
+        console.log(poprawneOdpowiedzi);
+        alert('Twoja punktacja: ' + poprawneOdpowiedzi);
+    }
+</script>

@@ -181,6 +181,12 @@
     <Content Include="Views\Home\MenuGłówne.cshtml" />
     <Content Include="Views\Home\Statystyki.cshtml" />
     <Content Include="Views\Home\Ustawienia.cshtml" />
+    <Content Include="Views\Home\TestOstrość.cshtml" />
+    <Content Include="Views\Home\TestBarwy.cshtml" />
+    <Content Include="Views\Home\TestIshary.cshtml" />
+    <Content Include="Views\Home\TestŚledzenie.cshtml" />
+    <Content Include="Views\Home\TestReakcja.cshtml" />
+    <Content Include="Views\Home\TestSzukanie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

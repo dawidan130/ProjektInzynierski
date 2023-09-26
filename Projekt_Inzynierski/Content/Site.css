@@ -284,3 +284,153 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+/*Test ostrości*/
+
+.body_ostrosc {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+    background-color: #182848;
+}
+
+.kontyner_ostrosc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tekst_ostrosc {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.tabela {
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+}
+
+.tabela td {
+    font-size: 20px;
+    border-left: 2px solid #87CEFA;
+    border-right: 2px solid #87CEFA;
+    width: 20%;
+}
+
+.tabela tr:first-child td a {
+    height: 50px;
+}
+
+.tabela td a {
+    max-width: 100%;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.tabela td div {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/*Figury*/
+
+.obiekt3 {
+    aspect-ratio: 1;
+    clip-path: polygon(93.30% 75.00%,6.70% 75.00%,50.00% 0.00%);
+}
+
+.obiekt4 {
+    aspect-ratio: 1;
+    clip-path: polygon(85.36% 85.36%,14.64% 85.36%,14.64% 14.64%,85.36% 14.64%);
+}
+
+.obiekt5 {
+    aspect-ratio: 1;
+    clip-path: polygon(79.39% 90.45%,20.61% 90.45%,2.45% 34.55%,50.00% 0.00%,97.55% 34.55%);
+}
+
+.obiekt6 {
+    aspect-ratio: 1;
+    clip-path: polygon(75.00% 93.30%,25.00% 93.30%,0.00% 50.00%,25.00% 6.70%,75.00% 6.70%,100.00% 50.00%);
+}
+
+.obiekt7 {
+    aspect-ratio: 1;
+    clip-path: polygon(98.75% 61.13%,71.69% 95.05%,28.31% 95.05%,1.25% 61.13%,10.91% 18.83%,50.00% 0.00%,89.09% 18.83%);
+}
+
+.obiekt8 {
+    aspect-ratio: 1;
+    clip-path: polygon(96.19% 69.13%,69.13% 96.19%,30.87% 96.19%,3.81% 69.13%,3.81% 30.87%,30.87% 3.81%,69.13% 3.81%,96.19% 30.87%);
+}
+
+/*Przyciski z odpowiedziami*/
+
+.przyciski_odp {
+    display: grid;
+    justify-content: center;
+}
+
+.przyciski_odp button {
+    flex: 1;
+    max-width: 300px;
+    min-width: 50px;
+    height: 50px;
+    background-color: #182849;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #4682B4;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.przyciski_odp button.aktywny {
+    background-color: #4682B4; /* Zmiana koloru tła dla aktywnych przycisków */
+}
+
+.przyciski_odp button:hover {
+    background-color: #4682B4;
+}
+
+.div_odp {
+    height: 100px;
+    font-size: 17.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+.przycisk_wyniki {
+    flex: 1;
+    max-width: 300px;
+    min-width: 150px;
+    height: 60px;
+    background-color: #182849;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #4682B4;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.przycisk_wyniki:hover {
+    background-color: #4682B4;
+}
