@@ -57,5 +57,10 @@ namespace Projekt_Inzynierski.Controllers
         {
             return View();
         }
+
+        public ActionResult Wynik()
+        {
+            return View();
+        }
     }
 }

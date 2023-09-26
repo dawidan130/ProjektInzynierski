@@ -25,3 +25,7 @@ function menu() {
 function starttest(test) {
     window.location.href = "/Home/" + test;
 }
+
+function wynik() {
+    window.location.href = "/Home/Wynik";
+}

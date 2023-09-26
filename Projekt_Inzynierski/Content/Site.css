@@ -434,3 +434,16 @@
 .przycisk_wyniki:hover {
     background-color: #4682B4;
 }
+
+/*Strona z wynikami*/
+
+.logo_testu {
+    display: grid;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.logo_testu img {
+    max-width: 200px;
+}

@@ -239,6 +239,8 @@
         }
     }
 
+    start = new Date();
+
     const przyciski = document.querySelectorAll('button[id]');
 
     przyciski.forEach((przycisk) => {
@@ -257,8 +259,14 @@
     const zakonczQuizButton = document.getElementById('zakonczQuiz');
 
     function Wynik() {
+        koniec = new Date();
+
         const poprawneOdpowiedzi = document.querySelectorAll('button[id="1"].aktywny').length;
-        console.log(poprawneOdpowiedzi);
-        alert('Twoja punktacja: ' + poprawneOdpowiedzi);
+        var czas = (koniec - start)/1000;
+
+        sessionStorage.setItem("pkt", poprawneOdpowiedzi);
+        sessionStorage.setItem("czas", czas);
+
+        wynik();
     }
 </script>

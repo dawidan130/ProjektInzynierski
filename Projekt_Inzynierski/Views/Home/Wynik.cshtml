@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <title>I.P.O - Wynik testu</title>
+</head>
+<body class="body_menu">
+    <div class="pasek">
+        <div class="lewo">
+            <img src=~/Obrazy/testostrosc.png style="cursor: default;" />
+            <a style="font-size: 20px;">Test "Nazwa testu"!</a>
+        </div>
+        <div class="prawo">
+            <img src=~/Obrazy/logout.png onclick="wyloguj()" />
+            <img src=~/Obrazy/stat.png onclick="statystyki()" />
+            <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
+        </div>
+    </div>
+
+    <div class="logo_testu" id="buzka">
+
+    </div>
+
+    <div class="logo_testu" id="info">
+
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    let pkt = sessionStorage.getItem("pkt");
+    let czas = sessionStorage.getItem("czas");
+    document.getElementById('buzka').innerHTML = '<img src="/Twarze/' + pkt + '.png" />';
+    document.getElementById('info').innerHTML = '<div>Twój wynik to: ' + pkt + '/5 uzyskany w czasie: ' + czas + 's </div>';
+</script>

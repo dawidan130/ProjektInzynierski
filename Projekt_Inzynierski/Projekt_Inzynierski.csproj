@@ -166,6 +166,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Twarze\0.png" />
+    <Content Include="Twarze\1.png" />
+    <Content Include="Twarze\2.png" />
+    <Content Include="Twarze\3.png" />
+    <Content Include="Twarze\4.png" />
+    <Content Include="Twarze\5.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -187,6 +193,7 @@
     <Content Include="Views\Home\TestŚledzenie.cshtml" />
     <Content Include="Views\Home\TestReakcja.cshtml" />
     <Content Include="Views\Home\TestSzukanie.cshtml" />
+    <Content Include="Views\Home\Wynik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
