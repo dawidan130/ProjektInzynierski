@@ -284,9 +284,9 @@
     cursor: pointer;
 }
 
-/*Test ostrości*/
+/*Testy*/
 
-.body_ostrosc {
+.body_test {
     margin: 0;
     padding: 0;
     display: flex;
@@ -298,26 +298,27 @@
     background-color: #182848;
 }
 
-.kontyner_ostrosc {
+.kontyner_test {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tekst_ostrosc {
+.tekst_test {
     font-size: 40px;
     margin-bottom: 50px;
 }
 
-.tabela {
+/*Test ostrości*/
+
+.tabela_ostrosc {
     border-collapse: collapse;
     width: 95%;
     text-align: center;
-    
 }
 
-.tabela td {
+.tabela_ostrosc td {
     font-size: 20px;
     border-left: 2px solid #87CEFA;
     border-right: 2px solid #87CEFA;
@@ -327,17 +328,17 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.tabela tr:first-child td a {
+.tabela_ostrosc tr:first-child td a {
     height: 50px;
 }
 
-.tabela td a {
+.tabela_ostrosc td a {
     max-width: 100%;
     overflow: hidden; 
     text-overflow: ellipsis;
 }
 
-.tabela td div {
+.tabela_ostrosc td div {
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -398,7 +399,7 @@
 }
 
 .przyciski_odp button.aktywny {
-    background-color: #4682B4; /* Zmiana koloru tła dla aktywnych przycisków */
+    background-color: #4682B4;
 }
 
 .przyciski_odp button:hover {
@@ -439,6 +440,24 @@
 
 .przycisk_wyniki:hover {
     background-color: #4682B4;
+}
+
+/*Test rozróżniania barw*/
+
+.tabela_barwy {
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+    border: 5px solid black;
+}
+
+.tabela_barwy td {
+    width: 5%;
+    height: 500px;
+    border: 5px solid black;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /*Strona z wynikami*/

@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Test ostrości wzroku</title>
 </head>
-<body class="body_ostrosc">
-    <div class="kontyner_ostrosc">
-        <div class="tekst_ostrosc">Udziel odpowiedzi na poniższe pytania: </div>
-        <table class="tabela">
+<body class="body_test">
+    <div class="kontyner_test">
+        <div class="tekst_test">Udziel odpowiedzi na poniższe pytania: </div>
+        <table class="tabela_ostrosc">
             <tr>
                 <td>
                     <a class="tekst">Ile krawędzi ma obiekt?</a>
@@ -271,7 +271,7 @@
     //Animacja startowa
     document.addEventListener("DOMContentLoaded", function () {
 
-        const kolumny = document.querySelectorAll(".tabela td");
+        const kolumny = document.querySelectorAll(".tabela_ostrosc td");
 
         function animacjaKolumn() {
             let delay = 250;
@@ -297,6 +297,4 @@
 
         animacjaKolumn();
     });
-
-
 </script>

@@ -10,13 +10,165 @@
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Test rozróżniania barw</title>
 </head>
-<body class="body_menu">
+<body class="body_test">
+    <div class="kontyner_test">
+        <div class="tekst_test">Wybierz kolor różniący się od reszty </div>
+        <table class="tabela_barwy">
+            <tr id="kolumny">
 
-    TEST ROŻRÓŻNIANIE BARW
-
+            </tr>
+        </table>
+        <div>
+            @*<button onclick="nadpisz()" >Dalej</button>*@
+        </div>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    const liczbakolumn = 20;
+    let pop_id = Math.floor(Math.random() * liczbakolumn);
+
+    document.getElementById('kolumny').innerHTML = wygenerujKolumny();
+
+    function nadpisz() {
+        document.getElementById('kolumny').innerHTML = '';
+        document.getElementById('kolumny').innerHTML = wygenerujKolumny();
+    }
+
+    function wygenerujKolumny() {
+
+        const min = 0;
+        const max = 255;
+
+        let r = Math.floor(Math.random() * (max - min + 1)) + min;
+        let g = Math.floor(Math.random() * (max - min + 1)) + min;
+        let b = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        let str = '';
+        let poziom = 50;
+        let nowy_kolor_r = r;
+        let nowy_kolor_g = g;
+        let nowy_kolor_b = b;
+
+        //Ustalenie najsilniejszej barwy i dostosowanie zmiany koloru
+        if (r >= g && r >= b) {
+            if (r + poziom > max) {
+                nowy_kolor_r = r - poziom;
+            }
+            else {
+                nowy_kolor_r = r + poziom;
+            }
+        } else if (g >= r && g >= b) {
+            if (g + poziom > max) {
+                nowy_kolor_g = g - poziom;
+            }
+            else {
+                nowy_kolor_g = g + poziom;
+            }
+        } else if (b >= r && b >= g) {
+            if (b + poziom > max) {
+                nowy_kolor_b = b - poziom;
+            }
+            else {
+                nowy_kolor_b = b + poziom;
+            }
+        }
+
+        for (let i = 0; i < liczbakolumn; i++) {
+            //Zmiana koloru dla wcześniej wylosowanej kolumny
+            if (i === pop_id) {
+                str += '<td id="' + i + '" style="background-color: rgb(' + nowy_kolor_r + ',' + nowy_kolor_g + ',' + nowy_kolor_b + ');"></td>';
+            }
+            else {
+                str += '<td id="' + i + '" style="background-color: rgb(' + r + ',' + g + ',' + b + ');"></td>';
+            }
+        }
+        return str;
+    }
+
+    let stop = true;
+    let start;
+    let koniec;
+    let czas_lacznie = 0;
+
+    const kolumny = document.querySelectorAll(".tabela_barwy td");
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        function animacjaKolumn() {
+            let delay = 250;
+            kolumny.forEach((kol) => {
+                setTimeout(() => {
+                    kol.style.opacity = 1;
+                    kol.style.transform = "translateY(0)";
+                }, delay);
+                delay += 50;
+            });
+            setTimeout(() => {
+                stop = false;
+                start = new Date();
+            }, 1600);
+        }
+        animacjaKolumn();
+    });
+
+    //System sprawdzania wyników
+    kolumny.forEach(function (kolumna) {
+        kolumna.addEventListener('click', function () {
+            if (!stop) {
+                const kliknietaKolumna = this;
+
+                if (czyPoprawna(kliknietaKolumna)) {
+                    dobrze(kliknietaKolumna);
+                }
+                else {
+                    zle(kliknietaKolumna);
+                }
+                koniec = new Date();
+                czas_lacznie += (koniec - start) / 1000;
+                console.log(czas_lacznie);
+            }
+
+            stop = true;
+        });
+    });
+
+    function czyPoprawna(kolumna) {
+        let id = pop_id.toString();
+
+        if (kolumna.id === id) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function dobrze(kolumna) {
+        kolumny.forEach(function (kol) {
+            kol.style.border = 'none';
+        });
+
+        kolumna.style.borderTop = '10px solid #39FF14';
+        kolumna.style.borderBottom = '10px solid #39FF14';
+    }
+
+    function zle(kolumna) {
+        kolumny.forEach(function (kol) {
+            kol.style.border = 'none';
+        });
+
+        kolumna.style.borderTop = '10px solid #FF3131';
+        kolumna.style.borderBottom = '10px solid #FF3131';
+
+        const popkol = document.getElementById(pop_id);
+
+        popkol.style.borderTop = '10px solid #39FF14';
+        popkol.style.borderBottom = '10px solid #39FF14';
+    }
+</script>
