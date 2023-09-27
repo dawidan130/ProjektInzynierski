@@ -8,12 +8,12 @@ namespace Projekt_Inzynierski.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult StronaGłówna()
+        public ActionResult StronaGlowna()
         {
             return View();
         }
 
-        public ActionResult MenuGłówne()
+        public ActionResult MenuGlowne()
         {
             return View();
         }
@@ -28,7 +28,7 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
-        public ActionResult TestOstrość()
+        public ActionResult TestOstrosc()
         {
             return View();
         }
@@ -43,7 +43,7 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
-        public ActionResult TestŚledzenie()
+        public ActionResult TestSledzenie()
         {
             return View();
         }

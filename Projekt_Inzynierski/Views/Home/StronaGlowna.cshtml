@@ -87,6 +87,8 @@
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
+<script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
 <script>
     //Logowanie
     document.getElementById('logowanie').addEventListener('click', function () {
@@ -113,7 +115,7 @@
             komunikatL.style.color = "green";
             komunikatL.textContent = "Zalogowano pomyślnie!";
 
-            setTimeout(Zaloguj, 1000);
+            setTimeout(zaloguj, 1000);
         }
         else {
             komunikatL.style.color = "red";
@@ -128,10 +130,6 @@
         hasloInput.value = "";
         komunikatL.textContent = "";
     });
-
-    function Zaloguj() {
-        window.location.href = "/Home/MenuGłówne";
-    }
 
     //Rejestrowanie
     document.getElementById('rejestrowanie').addEventListener('click', function () {

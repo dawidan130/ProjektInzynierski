@@ -55,7 +55,7 @@
             </tr>
         </table>
         <div>
-            <button class="przycisk_wyniki" onclick="Wynik()">Pokaż wynik</button>
+            <button class="przycisk_wyniki" onclick="Zlicz_Wynik()" disabled>Pokaż wynik</button>
         </div>
     </div>
 </body>
@@ -229,17 +229,15 @@
 
             for (let i = 0; i < tablica.length; i++) {
                 if (tablica[i] === odp) {
-                    str += '<button id="1">' + tablica[i] + '</button>';
+                    str += '<button id="1" disabled>' + tablica[i] + '</button>';
                 }
                 else {
-                    str += '<button id="0">' + tablica[i] + '</button>';
+                    str += '<button id="0" disabled>' + tablica[i] + '</button>';
                 }
             }
             return str;
         }
     }
-
-    start = new Date();
 
     const przyciski = document.querySelectorAll('button[id]');
 
@@ -258,7 +256,7 @@
 
     const zakonczQuizButton = document.getElementById('zakonczQuiz');
 
-    function Wynik() {
+    function Zlicz_Wynik() {
         koniec = new Date();
 
         const poprawneOdpowiedzi = document.querySelectorAll('button[id="1"].aktywny').length;
@@ -269,4 +267,36 @@
 
         wynik();
     }
+
+    //Animacja startowa
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const kolumny = document.querySelectorAll(".tabela td");
+
+        function animacjaKolumn() {
+            let delay = 250;
+            kolumny.forEach((kol) => {
+                setTimeout(() => {
+                    kol.style.opacity = 1;
+                    kol.style.transform = "translateY(0)";
+                }, delay);
+                delay += 500;
+            });
+            setTimeout(() => {
+                const przycisk = document.querySelector(".przycisk_wyniki");
+                przycisk.style.opacity = 1;
+                przycisk.style.transform = "scale(1)";
+                start = new Date();
+                przycisk.disabled = false;
+
+                przyciski.forEach((przyciski) => {
+                    przyciski.disabled = false;
+                });
+            }, delay);
+        }
+
+        animacjaKolumn();
+    });
+
+
 </script>

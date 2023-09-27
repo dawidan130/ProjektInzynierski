@@ -34,7 +34,7 @@
         </div>
         <div class="ikona">
             <a>Test ostrości wzroku</a>
-            <img src="~/Obrazy/testostrosc.png " onclick="starttest('TestOstrość')">
+            <img src="~/Obrazy/TestOstrosc.png" onclick="starttest('TestOstrosc')">
         </div>
     </div>
 
@@ -57,7 +57,7 @@
             return;
         }
 
-        document.getElementById('testynowe').style.animation = 'zmniejszenie 1s ease-out';
+        document.getElementById('testynowe').style.animation = 'zmniejszenie 1.01s ease-out';
 
         setTimeout(() => {
             if (zmienna === 'kolory') {
@@ -86,7 +86,7 @@
 
     function ruchyHTML() {
         let str = '';
-        str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/sledzenie.png" onclick="starttest(\'TestŚledzenie\')"></div>';
+        str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/sledzenie.png" onclick="starttest(\'TestSledzenie\')"></div>';
         str += '<div class="ikona2"><a>Czas reakcji</a><img src="/Obrazy/czas.png" onclick="starttest(\'TestReakcja\')"></div>';
         str += '<div class="ikona2"><a>Wyszukiwanie obiektu</a><img src="/Obrazy/szukanie.png" onclick="starttest(\'TestSzukanie\')"></div>';
         return str;

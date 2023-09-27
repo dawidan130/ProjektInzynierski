@@ -254,7 +254,6 @@
 .ikona a {
     font-size: 20px;
     white-space: nowrap;
-    cursor: pointer;
 }
 
 .ikona img {
@@ -315,6 +314,7 @@
     border-collapse: collapse;
     width: 95%;
     text-align: center;
+    
 }
 
 .tabela td {
@@ -322,6 +322,9 @@
     border-left: 2px solid #87CEFA;
     border-right: 2px solid #87CEFA;
     width: 20%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .tabela tr:first-child td a {
@@ -429,6 +432,9 @@
     font-size: 20px;
     cursor: pointer;
     margin-top: 50px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .przycisk_wyniki:hover {
@@ -441,9 +447,44 @@
     display: grid;
     justify-content: center;
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
 }
 
 .logo_testu img {
     max-width: 200px;
+}
+
+.kontener-glowny {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.kontener-wyniki {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 600px;
+}
+
+.kontener-wyniki div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kontener-wyniki a {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.kontener-wyniki img {
+    max-width: 200px;
+    cursor: pointer;
 }

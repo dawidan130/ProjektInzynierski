@@ -12,9 +12,8 @@
 </head>
 <body class="body_menu">
     <div class="pasek">
-        <div class="lewo">
-            <img src=~/Obrazy/testostrosc.png style="cursor: default;" />
-            <a style="font-size: 20px;">Test "Nazwa testu"!</a>
+        <div class="lewo" id="logo_gora">
+            
         </div>
         <div class="prawo">
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />
@@ -27,9 +26,26 @@
 
     </div>
 
-    <div class="logo_testu" id="info">
+    <div class="logo_testu" id="wynik">
 
     </div>
+
+    <div class="logo_testu" id="czas">
+
+    </div>
+
+    <div class="kontener-glowny" id="odnosniki">
+        <div class="kontener-wyniki">
+            <div id="logo_ponownie">
+
+            </div>
+            <div>
+                <a>Menu główne</a>
+                <img src="~/Obrazy/logo.png" onclick="menu()"/>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 
@@ -40,6 +56,38 @@
 <script>
     let pkt = sessionStorage.getItem("pkt");
     let czas = sessionStorage.getItem("czas");
+    let test = sessionStorage.getItem("test");
+
+    document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 20px;">Test "Nazwa testu"!</a>'; //Pomyśleć co z nazwą
+
+    const div_buzka = document.getElementById('buzka');
+    const div_wynik = document.getElementById('wynik');
+    const div_czas = document.getElementById('czas');
+    const div_odnosniki = document.getElementById('odnosniki');
+
+    setTimeout(() => {
+        div_buzka.style.opacity = 1;
+        div_buzka.style.transform = "translateY(0)";
+    }, 0);
+
+    setTimeout(() => {
+        div_wynik.style.opacity = 1;
+        div_wynik.style.transform = "translateY(0)";
+    }, 500);
+
+    setTimeout(() => {
+        div_czas.style.opacity = 1;
+        div_czas.style.transform = "translateY(0)";
+    }, 1000);
+
+    setTimeout(() => {
+        div_odnosniki.style.opacity = 1;
+        div_odnosniki.style.transform = "translateY(0)";
+    }, 2000);
+
     document.getElementById('buzka').innerHTML = '<img src="/Twarze/' + pkt + '.png" />';
-    document.getElementById('info').innerHTML = '<div>Twój wynik to: ' + pkt + '/5 uzyskany w czasie: ' + czas + 's </div>';
+    document.getElementById('wynik').innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
+    document.getElementById('czas').innerHTML = '<div>Czas: ' + czas + 's</div>';
+
+    document.getElementById('logo_ponownie').innerHTML = '<a>Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png" onclick="uruchom_ponownie()" />';
 </script>
