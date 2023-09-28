@@ -55,8 +55,10 @@
 
 <script>
     let pkt = sessionStorage.getItem("pkt");
-    let czas = sessionStorage.getItem("czas");
+    let czas = parseFloat(sessionStorage.getItem("czas"));
     let test = sessionStorage.getItem("test");
+
+    let z_czas = czas.toFixed(3);
 
     document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 20px;">Test "Nazwa testu"!</a>'; //Pomyśleć co z nazwą
 
@@ -87,7 +89,7 @@
 
     document.getElementById('buzka').innerHTML = '<img src="/Twarze/' + pkt + '.png" />';
     document.getElementById('wynik').innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
-    document.getElementById('czas').innerHTML = '<div>Czas: ' + czas + 's</div>';
+    document.getElementById('czas').innerHTML = '<div>Czas: ' + z_czas + 's</div>';
 
     document.getElementById('logo_ponownie').innerHTML = '<a>Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png" onclick="uruchom_ponownie()" />';
 </script>
