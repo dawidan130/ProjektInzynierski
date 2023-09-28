@@ -305,6 +305,39 @@
     align-items: center;
 }
 
+.kontyner_test label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.kontyner_test input {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    background-color: #4682B4;
+    font-size: 15px;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+}
+
+.kontyner_test input::placeholder {
+    font-size: 15px;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+}
+
+.kontyner_test input:focus {
+    outline: none;
+    border: 2px solid #87CEFA;
+    border-color: #87CEFA;
+}
+
+.kontyner_test input:not(:focus) {
+    border: 2px solid transparent;
+}
+
 .tekst_test {
     font-size: 40px;
     margin-bottom: 50px;
@@ -458,6 +491,26 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/*Test Ishary*/
+
+.tablica-ishary {
+    display: grid;
+    justify-content: center;
+    width: 550px;
+    height: 550px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.tablica-ishary img{
+    margin-top: 25px;
+    border-radius: 25px;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateX(-2000px);
+    transition: opacity 1s ease, transform 0.5s ease;
 }
 
 /*Strona z wynikami*/

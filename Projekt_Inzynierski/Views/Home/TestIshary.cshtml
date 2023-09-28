@@ -10,13 +10,126 @@
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Test tablice Ishary</title>
 </head>
-<body class="body_menu">
+<body class="body_test">
+    <div class="kontyner_test">
+        <div class="tekst_test">
+            Wpisz numer z obrazka w polu pod nim
+        </div>
+        <div class="tablica-ishary" id="obraz">
 
-    TEST TABLICE ISHARY
-
+        </div>
+        <label id="label" for="cyfra">Wprowadź cyfrę:</label>
+        <input style="border-radius: 10px;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
+        <button style="margin-top: 10px;" id="przycisk" class="przycisk_wyniki" disabled onclick="kolejnaTablica()">Dalej</button>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    let liczba = 0;
+
+    document.getElementById('obraz').innerHTML = pobierzObraz();
+
+    let obraz = document.getElementById(liczba);
+    let input = document.getElementById('cyfra');
+    let przycisk = document.getElementById('przycisk');
+    let label = document.getElementById('label');
+
+    let start;
+    let koniec;
+    let czas_lacznie = 0;
+
+    let punkty = 0;
+    let iteracja = 0;
+
+    animacjaObrazu();
+
+
+    function pobierzObraz() {
+        liczba = Math.floor(Math.random() * 10) + 1;
+
+        let str = '<img id=' + liczba + ' src="/Obrazy/Tablice/' + liczba + '.png">';
+
+        return str;
+    }
+
+    function animacjaObrazu() {
+        setTimeout(() => {
+            obraz.style.opacity = 1;
+            obraz.style.transform = "translateX(0)";
+        }, 200);
+        setTimeout(() => {
+            input.style.borderColor = '#87CEFA';
+            input.disabled = false;
+            input.focus();
+            start = new Date();
+        }, 1000);
+    }
+
+    let stop = false;
+
+    input.addEventListener('input', function (event) {
+        if (!stop) {
+            koniec = new Date();
+            stop = true;
+
+            if (parseFloat(input.value) === liczba) {
+                input.style.borderColor = '#39FF14';
+                label.textContent = 'Dobrze!';
+                punkty += 1;
+            }
+            else {
+                input.style.borderColor = '#FF3131';
+                label.textContent = 'Prawidłowa odpowiedź to: ' + liczba;
+            }
+            input.disabled = true;
+
+            setTimeout(() => {
+                przycisk.style.opacity = 1;
+                przycisk.style.transform = "scale(1)";
+                przycisk.disabled = false;
+            }, 500);
+
+            czas_lacznie += (koniec - start) / 1000;
+            console.log(czas_lacznie);
+            iteracja += 1;
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            przycisk.click();
+        }
+    });
+
+    function kolejnaTablica() {
+        if (iteracja === 5) {
+            sessionStorage.setItem("pkt", punkty);
+            sessionStorage.setItem("czas", czas_lacznie);
+            wynik();
+        }
+        else {
+            input.style.borderColor = '#87CEFA';
+            label.textContent = 'Wprowadź cyfrę:';
+            input.value = '';
+            obraz.innerHTML = '';
+            document.getElementById('obraz').innerHTML = pobierzObraz();
+            obraz = document.getElementById(liczba);
+            animacjaObrazu();
+            stop = false;
+            input.disabled = false;
+            przycisk.style.transform = "scale(0.8)";
+            przycisk.style.opacity = 0;
+            przycisk.disabled = true;
+            if (iteracja === 4) {
+                setTimeout(() => {
+                    przycisk.textContent = 'Pokaż wynik';
+                }, 500);
+            }
+        }
+    }
+</script>

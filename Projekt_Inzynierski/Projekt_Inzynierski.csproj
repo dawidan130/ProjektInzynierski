@@ -149,6 +149,17 @@
     <Content Include="Obrazy\sledzenie.png" />
     <Content Include="Obrazy\stat.png" />
     <Content Include="Obrazy\szukanie.png" />
+    <Content Include="Obrazy\Tablice\1.png" />
+    <Content Include="Obrazy\Tablice\10.png" />
+    <Content Include="Obrazy\Tablice\2.png" />
+    <Content Include="Obrazy\Tablice\3.png" />
+    <Content Include="Obrazy\Tablice\4.png" />
+    <Content Include="Obrazy\Tablice\5.png" />
+    <Content Include="Obrazy\Tablice\6.png" />
+    <Content Include="Obrazy\Tablice\7.png" />
+    <Content Include="Obrazy\Tablice\8.png" />
+    <Content Include="Obrazy\Tablice\9.png" />
+    <Content Include="Obrazy\TestBarwy.png" />
     <Content Include="Obrazy\testkolory.png" />
     <Content Include="Obrazy\testostrosc.png" />
     <Content Include="Obrazy\testruch.png" />
