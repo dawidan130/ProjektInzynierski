@@ -13,7 +13,7 @@
 <body class="body_menu">
     <div class="pasek">
         <div class="lewo" id="logo_gora">
-            
+
         </div>
         <div class="prawo">
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />
@@ -34,6 +34,10 @@
 
     </div>
 
+    <div class="logo_testu" style="font-size: 15px; font-style: italic;" id="info">
+
+    </div>
+
     <div class="kontener-glowny" id="odnosniki">
         <div class="kontener-wyniki">
             <div id="logo_ponownie">
@@ -41,7 +45,7 @@
             </div>
             <div>
                 <a>Menu główne</a>
-                <img src="~/Obrazy/logo.png" onclick="menu()"/>
+                <img src="~/Obrazy/logo.png" onclick="menu()" />
             </div>
         </div>
     </div>
@@ -60,12 +64,36 @@
 
     let z_czas = czas.toFixed(3);
 
-    document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 20px;">Test "Nazwa testu"!</a>'; //Pomyśleć co z nazwą
+    let nazwa = '';
+
+    switch (test) {
+        case 'TestOstrosc':
+            nazwa = 'Test ostrości wzroku';
+            break;
+        case 'TestBarwy':
+            nazwa = 'Test rozróżniania intensywności barw';
+            break;
+        case 'TestIshary':
+            nazwa = 'Test z tablicami Ishary';
+            break;
+        case 'TestReakcja':
+            nazwa = 'Test szybkości reakcji';
+            break;
+        case 'TestSzukanie':
+            nazwa = 'Test szybkości wyszukiwania obiektu';
+            break;
+        case 'TestSledzenie':
+            nazwa = 'Test dokładności śledzenia obiektu';
+            break;
+    }
+
+    document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 20px;">' + nazwa + '</a>';
 
     const div_buzka = document.getElementById('buzka');
     const div_wynik = document.getElementById('wynik');
     const div_czas = document.getElementById('czas');
     const div_odnosniki = document.getElementById('odnosniki');
+    const div_info = document.getElementById('info');
 
     setTimeout(() => {
         div_buzka.style.opacity = 1;
@@ -82,14 +110,45 @@
         div_czas.style.transform = "translateY(0)";
     }, 1000);
 
+    if (pkt === 'null') {
+        switch (true) {
+            case z_czas < 5:
+                pkt = 5;
+                break;
+            case z_czas >= 5 && z_czas < 10:
+                pkt = 4;
+                break;
+            case z_czas >= 10 && z_czas < 15:
+                pkt = 3;
+                break;
+            case z_czas >= 15 && z_czas < 20:
+                pkt = 2;
+                break;
+            case z_czas >= 20 && z_czas < 25:
+                pkt = 1;
+                break;
+        }
+        setTimeout(() => {
+            div_info.style.opacity = 1;
+            div_info.style.transform = "translateY(0)";
+        }, 1500);
+
+        setTimeout(() => {
+            div_odnosniki.style.opacity = 1;
+            div_odnosniki.style.transform = "translateY(0)";
+        }, 2500);
+
+        div_info.innerHTML = '<div>Wynik ustalony na podstawie uzsykanego czasu</div>';
+    }
+
     setTimeout(() => {
         div_odnosniki.style.opacity = 1;
         div_odnosniki.style.transform = "translateY(0)";
     }, 2000);
 
-    document.getElementById('buzka').innerHTML = '<img src="/Twarze/' + pkt + '.png" />';
-    document.getElementById('wynik').innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
-    document.getElementById('czas').innerHTML = '<div>Czas: ' + z_czas + 's</div>';
+    div_buzka.innerHTML = '<img src="/Twarze/' + pkt + '.png" />';
+    div_wynik.innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
+    div_czas.innerHTML = '<div>Czas: ' + z_czas + 's</div>';
 
     document.getElementById('logo_ponownie').innerHTML = '<a>Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png" onclick="uruchom_ponownie()" />';
 </script>

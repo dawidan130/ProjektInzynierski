@@ -160,8 +160,10 @@
     <Content Include="Obrazy\Tablice\8.png" />
     <Content Include="Obrazy\Tablice\9.png" />
     <Content Include="Obrazy\TestBarwy.png" />
+    <Content Include="Obrazy\TestIshary.png" />
     <Content Include="Obrazy\testkolory.png" />
     <Content Include="Obrazy\testostrosc.png" />
+    <Content Include="Obrazy\TestReakcja.png" />
     <Content Include="Obrazy\testruch.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

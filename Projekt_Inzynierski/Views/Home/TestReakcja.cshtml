@@ -10,13 +10,141 @@
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Test czasu reakcji</title>
 </head>
-<body class="body_menu">
-
-    TEST CZAS REAKCJI
-
+<body class="body_test" id="body">
+    <div class="kontyner_test" id="pole">
+        <div class="tekst_test">
+            Klikaj w tak wyglądające obiekty:
+        </div>
+        <div class="kontener-reakcja">
+            <span class="kropka" id="0" onclick="usuntym(0)">1</span>
+            <span class="kropka" id="1" onclick="usuntym(1)">2</span>
+            <span class="kropka" id="2" onclick="usuntym(2)">3</span>
+            <span class="kropka" id="3" onclick="usuntym(3)">4</span>
+            <span class="kropka" id="4" onclick="usuntym(4)">5</span>
+        </div>
+        <div class="tekst_test" style="margin-bottom: 25px; text-align: center;">
+            Po wciśnieciu start obiekty będą się pojawiać w losowych miejscach ekranu
+        </div>
+        <button class="przycisk_wyniki" style="font-size: 25px; min-height: 60px; margin-top: 25px;" id="przycisk" onclick="start()">Start</button>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let przycisk = document.getElementById('przycisk');
+        przycisk.style.opacity = 1;
+        przycisk.style.transform = "translateY(0)";
+    });
+
+    function usun(id) {
+        let kolko = document.getElementById(id);
+        kolko.style.animation = 'none';
+        void kolko.offsetWidth;
+        kolko.style.animation = 'kolko-animacja1 0.5s reverse forwards';
+    }
+
+    function usuntym(id) {
+        let kolko = document.getElementById(id);
+        kolko.style.animation = 'none';
+        void kolko.offsetWidth;
+        kolko.style.animation = 'kolko-animacja1 0.5s reverse forwards';
+        setTimeout(() => {
+            kolko.style.animation = 'none';
+            void kolko.offsetWidth;
+            kolko.style.animation = 'kolko-animacja1 0.5s forwards';
+        }, 2000);
+    }
+
+    function start() {
+        let pole = document.getElementById("pole");
+        pole.innerHTML = '';
+        let counter = 3;
+
+        let countdown = setInterval(function () {
+            if (counter === 0) {
+                pole.innerHTML = '<div class="odliczanie">START!</div>';
+                clearInterval(countdown);
+
+                let odliczanie = setInterval(function () {
+                    wygenerujKropke();
+                    clearInterval(odliczanie);
+                }, 1000);
+            }
+            else {
+                pole.innerHTML = '<div class="odliczanie">' + counter + '</div>';
+            }
+            counter--;
+        }, 1000);
+    }
+
+    function losowaPozycja() {
+        const wysokosc = window.innerHeight;
+        const szerokosc = window.innerWidth;
+
+        let randomX = Math.floor(Math.random() * (szerokosc - 105));
+        let randomY = Math.floor(Math.random() * (wysokosc - 105));
+
+        //Zabezpieczenie w przypadku wylosowania zera
+        if (randomX === 0) {
+            randomX = 110;
+        }
+        if (randomY === 0) {
+            randomY = 110;
+        }
+
+        return { x: randomX, y: randomY };
+    }
+
+    let liczba = 1;
+    let klik = false;
+
+    let poczatek;
+    let koniec;
+    let czas_lacznie = 0;
+
+    function wygenerujKropke() {
+        let body = document.getElementById('body');
+        body.innerHTML = '';
+
+        body.classList.remove = 'body_test';
+        body.classList.add = 'body_losowe';
+
+        body.innerHTML = '<span id="' + liczba + '" class="kropka" style="position: absolute;" onclick="nowakropka(' + liczba + ')">' + liczba + '</span>';
+
+        kropka = document.getElementById(liczba);
+
+        const position = losowaPozycja();
+        kropka.style.top = `${position.y}px`;
+        kropka.style.left = `${position.x}px`;
+
+        body.appendChild(kropka);
+
+        setTimeout(() => {
+            klik = true;
+            poczatek = new Date();
+        }, 350);
+        liczba++;
+    }
+
+    function nowakropka(id) {
+        if (klik) {
+            klik = false;
+            koniec = new Date();
+            czas_lacznie += (koniec - poczatek) / 1000;
+            usun(id);
+            setTimeout(() => {
+                if (liczba===6) {
+                    sessionStorage.setItem("czas", czas_lacznie);
+                    sessionStorage.setItem("pkt", null);
+                    wynik();
+                }
+                wygenerujKropke();
+            }, 500);
+        }
+    }
+</script>
