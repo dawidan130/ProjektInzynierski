@@ -18,6 +18,11 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
+        public ActionResult Info()
+        {
+            return View();
+        }
+
         public ActionResult Statystyki()
         {
             return View();

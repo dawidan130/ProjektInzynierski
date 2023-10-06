@@ -16,6 +16,7 @@
 
         </div>
         <div class="prawo">
+            <img src=~/Obrazy/info.png onclick="info()" />
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />
             <img src=~/Obrazy/stat.png onclick="statystyki()" />
             <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
@@ -124,8 +125,11 @@
             case z_czas >= 15 && z_czas < 20:
                 pkt = 2;
                 break;
-            case z_czas >= 20:
+            case z_czas >= 20 && z_czas < 25:
                 pkt = 1;
+                break;
+            case z_czas >= 25:
+                pkt = 0;
                 break;
         }
         setTimeout(() => {

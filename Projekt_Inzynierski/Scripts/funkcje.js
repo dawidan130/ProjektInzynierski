@@ -10,6 +10,10 @@ function wyloguj() {
     window.location.href = "/Home/StronaGlowna";
 }
 //------
+//Przejście do strony z informcjami (instrukcje,opisy)
+function info() {
+    window.location.href = "/Home/Info";
+}
 
 //Przejście do strony ze statystykami
 function statystyki() {

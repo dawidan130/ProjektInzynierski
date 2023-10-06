@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <title>I.P.O - Info</title>
+</head>
+<body class="body_menu">
+    <div class="pasek">
+        <div class="lewo">
+            <img src=~/Obrazy/logo.png style="cursor: default;" />
+            <a style="font-size: 20px;">Poznaj rodzaje testów oraz zasady w nich panujące</a>
+        </div>
+        <div class="prawo">
+            <img src=~/Obrazy/logo.png onclick="menu()" />
+            <img src=~/Obrazy/stat.png onclick="statystyki()" />
+            <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
+            <img src=~/Obrazy/logout.png onclick="wyloguj()" />
+        </div>
+    </div>
+
+    <div class="kontyner_test">
+        <table class="tabela_info">
+            <tr>
+                <td class="opis_kategoria">
+                    Ikona testu
+                </td>
+                <td class="opis_kategoria">
+                    Opis testu
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestOstrosc.png">
+                </td>
+                <td class="opis_testu">
+                    Test składa się z 5 pytań w których wymagane jest zaznaczenie poprawnych odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo. Pomiar czasu jest uruchamiany w momencie pojawienia się przycisku.
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/testkolory.png">
+                </td>
+                <td class="opis_kategoria">
+                    Testy opierające się na kolorach
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestIshary.png">
+                </td>
+                <td class="opis_testu">
+                    Test składa się z 5 wyświetlanych tablic Ishary, a wymagane jest wpisanie w pole wartości liczbowej odpowiadającej liczbie na tablicy. Czas jest mierzony pomiędzy wyświetleniem tablicy, a wpisaniem wyniku.
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestBarwy.png">
+                </td>
+                <td class="opis_testu">
+                    Test składa się z 5 losowo generowanych tablic z barwami gdzie jedna z nich różni się od innych swoim natężeniem. Wymagane jest zaznaczenie która z barw odstaje od reszty. Czas jest mierzony pomiędzy wyświetleniem barw, a wyborem odpowiedniej barwy.
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/testruch.png">
+                </td>
+                <td class="opis_kategoria">
+                    Testy opierające się na ruchu oczu
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestSledzenie.png">
+                </td>
+                <td class="opis_testu">
+                    Funkcjonalność w trakcie budowy.
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestReakcja.png">
+                </td>
+                <td class="opis_testu">
+                    Po uruchomieniu testu i przeczytaniu informacji wyświetlane będzie 5 punktów w losowym miejscu na ekranie. Wymagane jest jak najszybsze kliknięcie w dany obiekt. Czas jest mierzony pomiędzy wyświetleniem punktu, a kliknięciem w niego.
+                </td>
+            </tr>
+            <tr>
+                <td class="komorka_obraz">
+                    <img src="~/Obrazy/TestSzukanie.png">
+                </td>
+                <td class="opis_testu">
+                    Funkcjonalność w trakcie budowy.
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/funkcje.js"></script>

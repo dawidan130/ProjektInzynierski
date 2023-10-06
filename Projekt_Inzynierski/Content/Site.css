@@ -284,6 +284,58 @@
     cursor: pointer;
 }
 
+/*Strona z informacjami*/
+
+.tabela_info {
+    margin-top: 40px;
+    border-collapse: collapse;
+    justify-content: center;
+}
+
+.tabela_info td {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.tabela_info tr {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.tabela_info tr:hover {
+    background-color: #182848;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.komorka_obraz {
+    min-width: 150px;
+}
+
+.komorka_obraz img {
+    max-width: 90px;
+}
+
+.opis_testu {
+    max-width: 700px;
+}
+
+.opis_kategoria {
+    font-size: 24px;
+    max-width: 500px;
+}
+
 /*Testy*/
 
 .body_test {

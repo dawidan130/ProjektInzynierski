@@ -138,12 +138,14 @@
             czas_lacznie += (koniec - poczatek) / 1000;
             usun(id);
             setTimeout(() => {
-                if (liczba===6) {
+                if (liczba === 6) {
                     sessionStorage.setItem("czas", czas_lacznie);
                     sessionStorage.setItem("pkt", null);
                     wynik();
                 }
-                wygenerujKropke();
+                else if (liczba < 6) {
+                    wygenerujKropke();
+                }
             }, 500);
         }
     }
