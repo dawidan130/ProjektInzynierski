@@ -631,8 +631,23 @@
     height: auto;
 }
 
-/*Strona z wynikami*/
+/*Test wyszukiwania obiektu*/
 
+.tabela_obiekt table {
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.tabela_obiekt table tr {
+    padding: 10px;
+}
+
+.tabela_obiekt table td {
+    padding: 10px;
+}
+    
+/*Strona z wynikami*/
+  
 .logo_testu {
     display: grid;
     justify-content: center;

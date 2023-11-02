@@ -166,6 +166,8 @@
     <Content Include="Obrazy\testostrosc.png" />
     <Content Include="Obrazy\TestReakcja.png" />
     <Content Include="Obrazy\testruch.png" />
+    <Content Include="Obrazy\TestSledzenie.png" />
+    <Content Include="Obrazy\TestSzukanie.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
