@@ -13,21 +13,24 @@
 <body class="body_test">
     <div class="kontyner_test">
         <div class="tekst_test">Wybierz kolor różniący się od reszty </div>
-        <table class="tabela_barwy">
+        <table id="tabela" class="tabela_barwy">
             <tr id="kolumny">
-
             </tr>
         </table>
         <div>
-            <button class="przycisk_wyniki" onclick="nadpisz()" disabled>Dalej</button>
+            <button class="przycisk_wyniki" style="opacity: 0;" onclick="nadpisz()" disabled>Dalej</button>
         </div>
     </div>
+
+    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+<script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
     const przycisk = document.querySelector(".przycisk_wyniki");
@@ -39,6 +42,9 @@
     document.getElementById('kolumny').innerHTML = wygenerujKolumny();
 
     function nadpisz() {
+        tabela.style.marginTop = '5px';
+        tabela.style.marginBottom = '5px';
+
         if (iteracja === 5) {
             sessionStorage.setItem("pkt", punkty);
             sessionStorage.setItem("czas", czas_lacznie);
@@ -121,6 +127,7 @@
     let czas_lacznie = 0;
 
     let kolumny = document.querySelectorAll(".tabela_barwy td");
+    let tabela = document.getElementById("tabela");
 
     function animacjaKolumn() {
         let delay = 250;
@@ -181,6 +188,9 @@
             kol.style.border = 'none';
         });
 
+        tabela.style.marginTop = '0px';
+        tabela.style.marginBottom = '0px';
+
         kolumna.style.borderTop = '10px solid #39FF14';
         kolumna.style.borderBottom = '10px solid #39FF14';
         punkty += 1;
@@ -191,6 +201,9 @@
         kolumny.forEach(function (kol) {
             kol.style.border = 'none';
         });
+
+        tabela.style.marginTop = '0px';
+        tabela.style.marginBottom = '0px';
 
         kolumna.style.borderTop = '10px solid #FF3131';
         kolumna.style.borderBottom = '10px solid #FF3131';

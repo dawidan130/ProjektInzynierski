@@ -61,7 +61,7 @@
 
                 <div id="komunikat_hasla" style="padding-top: 10px;"></div>
 
-                <label for="pseudonim">Pseudonim:</label>
+                @*<label for="pseudonim">Pseudonim:</label>
                 <input type="text" id="pseudonim" name="pseudonim" placeholder="Wprowadź pseudonim">
 
                 <label for="imie">Imię:</label>
@@ -73,7 +73,7 @@
                 <label for="data_urodzenia">Podaj datę urodzenia:</label>
                 <input type="date" id="data_urodzenia" name="data_urodzenia" placeholder="Wprowadź datę urodzenia">
 
-                <div id="komunikat_rejestrowanie" style="padding-top: 10px;">*pola obowiązkowe</div>
+                <div id="komunikat_rejestrowanie" style="padding-top: 10px;">*pola obowiązkowe</div>*@
 
                 <div class="przyciskiFormularza">
                     <button id="zarejestruj">Zarejestruj</button>
@@ -144,10 +144,13 @@
     const mailInput = document.getElementById("e_mail");
     const hasloRejInput = document.getElementById("haslo_rej");
     const pothasRejInput = document.getElementById("pothaslo");
-    const pseudoInput = document.getElementById("pseudonim");
-    const imieInput = document.getElementById("imie");
-    const nazwiskoInput = document.getElementById("nazwisko");
-    const dataInput = document.getElementById("data_urodzenia");
+
+    //Niewykorzystane zmienne formularza
+    //const pseudoInput = document.getElementById("pseudonim");
+    //const imieInput = document.getElementById("imie");
+    //const nazwiskoInput = document.getElementById("nazwisko");
+    //const dataInput = document.getElementById("data_urodzenia");
+
     const komunikatH = document.getElementById("komunikat_hasla");
     const komunikatR = document.getElementById("komunikat_rejestrowanie");
 
@@ -174,12 +177,12 @@
         let email = mailInput.value;
         let haslo = hasloRejInput.value;
         let pothaslo = pothasRejInput.value;
-        let data = new Date(dataInput.value);
-        let dzisiaj = new Date();
+        //let data = new Date(dataInput.value);
+        //let dzisiaj = new Date();
 
         if (email === "" || haslo === "" || pothaslo === "") {
             komunikatR.style.color = "red";
-            komunikatR.textContent = "Puste pola są obowiązkowe!";
+            komunikatR.textContent = "Wypełnij puste pola!";
             return;
         }
 
@@ -195,11 +198,12 @@
             return;
         }
 
-        if (data >= dzisiaj) {
-            komunikatR.style.color = "red";
-            komunikatR.textContent = "Błędna data urodzenia!";
-            return;
-        }
+        //Sprawdzanie daty urodziny
+        //if (data >= dzisiaj) {
+        //    komunikatR.style.color = "red";
+        //    komunikatR.textContent = "Błędna data urodzenia!";
+        //    return;
+        //}
 
         komunikatR.style.color = "green";
         komunikatR.textContent = "Pomyślnie zarejestrowano!";
@@ -212,10 +216,12 @@
         mailInput.value = "";
         hasloRejInput.value = "";
         pothasRejInput.value = "";
-        pseudoInput.value = "";
-        imieInput.value = "";
-        nazwiskoInput.value = "";
-        dataInput.value = "";
+
+        //pseudoInput.value = "";
+        //imieInput.value = "";
+        //nazwiskoInput.value = "";
+        //dataInput.value = "";
+
         komunikatH.textContent = "";
         komunikatR.style.color = "#87CEFA";
         komunikatR.textContent = "*pola obowiązkowe";

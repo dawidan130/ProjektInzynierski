@@ -22,15 +22,25 @@
         <input style="border-radius: 10px;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
         <button style="margin-top: 10px;" id="przycisk" class="przycisk_wyniki" disabled onclick="kolejnaTablica()">Dalej</button>
     </div>
+
+    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+<script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
     let liczba = 0;
+
+    let poziom = 1;
+
+    let liczbyL = [3, 8, 5, 4, 9, 2, 1, 6, 7];
+    let liczbyS = [12, 43, 96, 77, 53, 15, 25, 68, 84];
+    let liczbyT = [435, 111, 853, 123, 651, 590, 282, 338, 717];
 
     document.getElementById('obraz').innerHTML = pobierzObraz();
 
@@ -48,11 +58,25 @@
 
     animacjaObrazu();
 
-
     function pobierzObraz() {
-        liczba = Math.floor(Math.random() * 10) + 1;
+        let path = '';
+        let odp = [];
 
-        let str = '<img id=' + liczba + ' src="/Obrazy/Tablice/' + liczba + '.png">';
+        switch (poziom) {
+            case 1:
+                path = '/Obrazy/Tablice/L/';
+                break;
+            case 2:
+                path = '/Obrazy/Tablice/S/';
+                break;
+            case 3:
+                path = '/Obrazy/Tablice/T/';
+                break;
+        }
+
+        liczba = Math.floor(Math.random() * 9) + 1;
+
+        let str = '<img id=' + liczba + ' src="' + path + liczba + '.png">';
 
         return str;
     }
@@ -74,29 +98,44 @@
 
     input.addEventListener('input', function (event) {
         if (!stop) {
-            koniec = new Date();
-            stop = true;
+            let wpisanaWartosc = event.target.value;
+            if (wpisanaWartosc.length >= poziom) {
+                koniec = new Date();
+                stop = true;
 
-            if (parseFloat(input.value) === liczba) {
-                input.style.borderColor = '#39FF14';
-                label.textContent = 'Dobrze!';
-                punkty += 1;
+                switch (poziom) {
+                    case 1:
+                        odp = liczbyL;
+                        break;
+                    case 2:
+                        odp = liczbyS;
+                        break;
+                    case 3:
+                        odp = liczbyT;
+                        break;
+                }
+
+                if (parseFloat(input.value) === odp[liczba - 1]) {
+                    input.style.borderColor = '#39FF14';
+                    label.textContent = 'Dobrze!';
+                    punkty += 1;
+                }
+                else {
+                    input.style.borderColor = '#FF3131';
+                    label.textContent = 'Prawidłowa odpowiedź to: ' + odp[liczba - 1];
+                }
+                input.disabled = true;
+
+                setTimeout(() => {
+                    przycisk.style.opacity = 1;
+                    przycisk.style.transform = "scale(1)";
+                    przycisk.disabled = false;
+                }, 500);
+
+                czas_lacznie += (koniec - start) / 1000;
+                console.log(czas_lacznie);
+                iteracja += 1;
             }
-            else {
-                input.style.borderColor = '#FF3131';
-                label.textContent = 'Prawidłowa odpowiedź to: ' + liczba;
-            }
-            input.disabled = true;
-
-            setTimeout(() => {
-                przycisk.style.opacity = 1;
-                przycisk.style.transform = "scale(1)";
-                przycisk.disabled = false;
-            }, 500);
-
-            czas_lacznie += (koniec - start) / 1000;
-            console.log(czas_lacznie);
-            iteracja += 1;
         }
     });
 

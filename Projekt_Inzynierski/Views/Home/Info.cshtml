@@ -26,12 +26,15 @@
 
     <div class="kontyner_test">
         <table class="tabela_info">
-            <tr>
+            <tr style="height: 50px;">
                 <td class="opis_kategoria">
                     Ikona testu
                 </td>
                 <td class="opis_kategoria">
                     Opis testu
+                </td>
+                <td class="opis_kategoria">
+                    Opis trudności
                 </td>
             </tr>
             <tr>
@@ -39,14 +42,17 @@
                     <img src="~/Obrazy/TestOstrosc.png">
                 </td>
                 <td class="opis_testu">
-                    Test składa się z 5 pytań w których wymagane jest zaznaczenie poprawnych odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo. Pomiar czasu jest uruchamiany w momencie pojawienia się przycisku.
+                    Test składa się z 5 kolejnych pytań w których wymagane jest zaznaczenie poprawnych odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo. Pomiar czasu jest uruchamiany w momencie pojawienia się przycisku.
+                </td>
+                <td class="opis_testu">
+                    Wraz ze wzrostem poziomu trudności pomniejszeniu ulegają elementy z których zczytywane są odpowiedzi np. wielkość figury czy rozmiar czcionki napisów. Czas jest mierzony od zakończenia animacji ładowania do momentu kliknięcia kolejnego pytania.
                 </td>
             </tr>
             <tr>
                 <td class="komorka_obraz">
                     <img src="~/Obrazy/testkolory.png">
                 </td>
-                <td class="opis_kategoria">
+                <td class="opis_kategoria" colspan="2">
                     Testy opierające się na kolorach
                 </td>
             </tr>
@@ -57,20 +63,26 @@
                 <td class="opis_testu">
                     Test składa się z 5 wyświetlanych tablic Ishary, a wymagane jest wpisanie w pole wartości liczbowej odpowiadającej liczbie na tablicy. Czas jest mierzony pomiędzy wyświetleniem tablicy, a wpisaniem wyniku.
                 </td>
+                <td class="opis_testu">
+                    Wraz ze wzrostem poziomu trudności zmieniają się natężenia tablic oraz liczba cyfr. Przy łatwym poziomie kontrast kolorystyczny cyfry na tablicy będzie wysoki. Wraz ze wzrostem poziomu kontrast będzie się pomniejszał oraz będzie się zwiększać ilość cyfr. 
+                </td>
             </tr>
             <tr>
                 <td class="komorka_obraz">
                     <img src="~/Obrazy/TestBarwy.png">
                 </td>
                 <td class="opis_testu">
-                    Test składa się z 5 losowo generowanych tablic z barwami gdzie jedna z nich różni się od innych swoim natężeniem. Wymagane jest zaznaczenie która z barw odstaje od reszty. Czas jest mierzony pomiędzy wyświetleniem barw, a wyborem odpowiedniej barwy.
+                    Test składa się z 5 kolejno losowo generowanych tablic z barwami gdzie jedna z nich różni się od innych swoim natężeniem. Wymagane jest zaznaczenie która z barw odstaje od reszty. Czas jest mierzony pomiędzy wyświetleniem barw, a wyborem odpowiedniej barwy.
+                </td>
+                <td class="opis_testu">
+                    Wraz ze wzrostem poziomu trudności będą pomniejszać się różnice pomiędzy szukanym kolorem. Jego intensywność będzie ulegać zmniejszeniu przez co będzie trudniejszy do rozróznienia. 
                 </td>
             </tr>
             <tr>
                 <td class="komorka_obraz">
                     <img src="~/Obrazy/testruch.png">
                 </td>
-                <td class="opis_kategoria">
+                <td class="opis_kategoria" colspan="2">
                     Testy opierające się na ruchu oczu
                 </td>
             </tr>
@@ -79,7 +91,10 @@
                     <img src="~/Obrazy/TestReakcja.png">
                 </td>
                 <td class="opis_testu">
-                    Po uruchomieniu testu i przeczytaniu informacji wyświetlane będzie 5 punktów w losowym miejscu na ekranie. Wymagane jest jak najszybsze kliknięcie w dany obiekt. Czas jest mierzony pomiędzy wyświetleniem punktu, a kliknięciem w niego.
+                    Po uruchomieniu testu i przeczytaniu informacji wstępnych wyświetlane będzie 5 kolejnych punktów w losowym miejscu na ekranie. Wymagane jest jak najszybsze kliknięcie w dany obiekt. Czas jest mierzony pomiędzy wyświetleniem punktu, a kliknięciem w niego.
+                </td>
+                <td class="opis_testu">
+                    Wraz ze wzrostem poziomu trudności wielkość punktów będzie ulegać pomniejszeniu. Sama wielkość obiektów jest rezprezentowana w teście przez kliknięciem przycisku Start.
                 </td>
             </tr>
             <tr>
@@ -87,7 +102,10 @@
                     <img src="~/Obrazy/TestSzukanie.png">
                 </td>
                 <td class="opis_testu">
-                    Test polega na znalezieniu na planszy wskazanego obiektu. Figura wskazana nad planszą występuje na niej tylko raz z tą samą rotacją. Po znalezieniu obiektu należy na niego kliknąć w celu zakończenia testu.
+                    Test polega na znalezieniu na planszy wskazanego obiektu. Wskazana figura występuje na planszy tylko raz z tą samą rotacją. Po znalezieniu obiektu należy na niego kliknąć w celu zakończenia testu co zakończy również odmierzanie czasu.
+                </td>
+                <td class="opis_testu">
+                    Wraz ze wzrostem poziomu trudności będzie się zwiększać zapełnienie planszy. Przy łatwym poziomie zapełnienie planszy oscyluje na poziomie 50%, za to przy trudnym - koło 90%.
                 </td>
             </tr>
         </table>

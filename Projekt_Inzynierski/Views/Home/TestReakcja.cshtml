@@ -27,12 +27,16 @@
         </div>
         <button class="przycisk_wyniki" style="font-size: 25px; min-height: 60px; margin-top: 25px;" id="przycisk" onclick="start()">Start</button>
     </div>
+
+    <div id="info" class="info_poziom">Poziom: Łatwy</div>
+    <div id="powrot" class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+<script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -61,6 +65,8 @@
     }
 
     function start() {
+        document.getElementById("info").style.opacity = 0;
+        document.getElementById("powrot").style.opacity = 0;
         let pole = document.getElementById("pole");
         pole.innerHTML = '';
         let counter = 3;

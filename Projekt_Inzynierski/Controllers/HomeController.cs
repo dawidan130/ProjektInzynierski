@@ -48,10 +48,10 @@ namespace Projekt_Inzynierski.Controllers
             return View();
         }
 
-        public ActionResult TestSledzenie()
-        {
-            return View();
-        }
+        //public ActionResult TestSledzenie()
+        //{
+        //    return View();
+        //}
 
         public ActionResult TestReakcja()
         {

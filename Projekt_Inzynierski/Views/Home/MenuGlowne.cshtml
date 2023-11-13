@@ -17,7 +17,7 @@
             <a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/info.png onclick="info()"/>
+            <img src=~/Obrazy/info.png onclick="info()" />
             <img src=~/Obrazy/stat.png onclick="statystyki()" />
             <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />
@@ -42,6 +42,8 @@
     <div id="testynowe" class="kontener-ikony" style="animation: none;">
 
     </div>
+
+    <div class="info_poziom" style="top: 110px;">Poziom: Łatwy</div>
 
 </body>
 </html>
@@ -87,7 +89,7 @@
 
     function ruchyHTML() {
         let str = '';
-        str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/TestSledzenie.png" onclick="starttest(\'TestSledzenie\')"></div>';
+        //str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/TestSledzenie.png" onclick="starttest(\'TestSledzenie\')"></div>';
         str += '<div class="ikona2"><a>Czas reakcji</a><img src="/Obrazy/TestReakcja.png" onclick="starttest(\'TestReakcja\')"></div>';
         str += '<div class="ikona2"><a>Wyszukiwanie obiektu</a><img src="/Obrazy/TestSzukanie.png" onclick="starttest(\'TestSzukanie\')"></div>';
         return str;

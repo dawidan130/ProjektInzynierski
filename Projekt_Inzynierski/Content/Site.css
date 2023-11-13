@@ -284,12 +284,27 @@
     cursor: pointer;
 }
 
+.info_poziom {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: rgba(135, 206, 250, 0.5);
+    font-size: 30px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.info_poziom:hover {
+    color: #87CEFA;
+}
+
 /*Strona z informacjami*/
 
 .tabela_info {
     margin-top: 40px;
     border-collapse: collapse;
     justify-content: center;
+    border: solid 2px #87CEFA;
 }
 
 .tabela_info td {
@@ -297,6 +312,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100px;
+    border: solid 2px #87CEFA;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .tabela_info tr {
@@ -328,7 +346,7 @@
 }
 
 .opis_testu {
-    max-width: 700px;
+    max-width: 525px;
 }
 
 .opis_kategoria {
@@ -366,7 +384,7 @@
 
 .kontyner_test input {
     width: 100%;
-    max-width: 200px;
+    max-width: 150px;
     padding: 10px;
     background-color: #4682B4;
     font-size: 15px;
@@ -395,37 +413,28 @@
     margin-bottom: 50px;
 }
 
+.powrot {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 30px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.powrot:hover {
+    color: red;
+}
+
 /*Test ostrości*/
 
-.tabela_ostrosc {
-    border-collapse: collapse;
-    width: 95%;
-    text-align: center;
-}
-
-.tabela_ostrosc td {
-    font-size: 20px;
-    border-left: 2px solid #87CEFA;
-    border-right: 2px solid #87CEFA;
-    width: 20%;
+.kontener-ostrosc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 1s ease;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.tabela_ostrosc tr:first-child td a {
-    height: 50px;
-}
-
-.tabela_ostrosc td a {
-    max-width: 100%;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-}
-
-.tabela_ostrosc td div {
-    margin: 0 auto;
-    margin-top: 20px;
 }
 
 /*Figury*/
@@ -518,7 +527,6 @@
     font-size: 20px;
     cursor: pointer;
     margin-top: 50px;
-    opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -534,6 +542,8 @@
     width: 90%;
     text-align: center;
     border: 5px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .tabela_barwy td {

@@ -18,16 +18,19 @@
         <div id="obiekt" style="background-color: #87CEFA; max-width: 50px; min-height: 50px; margin-bottom: 20px;"></div>
         <div class="tabela_obiekt" style="border: solid 2px #87CEFA; border-radius: 25px;">
             <table id="tabelka">
-
             </table>
         </div>
     </div>
+
+    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
+<script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
     let poczatek;
@@ -65,6 +68,7 @@
     let komorki = wiersze * kolumny;
     let iterator = 0;
     let trudnosc = 0.5; //0.5 = 50%, 0.25 = 75%, 0.1 = 90% // stopień wypełnienia tabelki
+    let rozmiar = 25; //rozmiar obiektów w planszy (wartość w px)
 
     //Wybranie miejsca w którym będzie się znajdował szukany obiekt
     let szukanyObiekt = Math.floor(Math.random() * komorki);
@@ -77,14 +81,14 @@
         for (var j = 0; j < kolumny; j++) {
             var cell = row.insertCell(j);
             if (iterator === szukanyObiekt) {
-                cell.innerHTML = '<div class="obiekt' + liczba + '" style="background-color: #87CEFA; max-width: 25px; min-height: 25px; transform: rotate(' + losowaRotacja + 'deg);" onclick="znaleziono()"></div>';
+                cell.innerHTML = '<div class="obiekt' + liczba + '" style="background-color: #87CEFA; max-width: ' + rozmiar + 'px; min-height: ' + rozmiar + 'px; transform: rotate(' + losowaRotacja + 'deg);" onclick="znaleziono()"></div>';
             }
             else {
                 let czyWystapi = Math.random();
                 if (czyWystapi >= trudnosc) {
                     let cyfra = LosowyObiekt();
                     let losowyKat = Math.floor(Math.random() * 360);
-                    cell.innerHTML = '<div class="obiekt' + cyfra + '" style="background-color: #87CEFA; max-width: 25px; min-height: 25px; transform: rotate(' + losowyKat + 'deg);"></div>';
+                    cell.innerHTML = '<div class="obiekt' + cyfra + '" style="background-color: #87CEFA; max-width: ' + rozmiar + 'px; min-height: ' + rozmiar + 'px; transform: rotate(' + losowyKat + 'deg);"></div>';
                 }
                 else {
                     cell.innerHTML = '';
