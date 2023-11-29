@@ -108,20 +108,28 @@
         //GET z bazy czy istnieje taki mail
 
         //rozwiązanie tymczasowe bez bazy danych (ma na celu stworzenie komunikatów błędów, funkcjonalność logowania prawdopodobnie będzie działać na innej zasadzie)
-        let testowylogin = "testowymail@gmail.com";
-        let testowylogin2 = "123";
+        //-----
+        //let testowylogin = "testowymail@gmail.com";
+        //let testowylogin2 = "123";
 
-        if (loginInput.value === testowylogin || loginInput.value === testowylogin2) {
-            komunikatL.style.color = "green";
-            komunikatL.textContent = "Zalogowano pomyślnie!";
+        //if (loginInput.value === testowylogin || loginInput.value === testowylogin2) {
+        //    komunikatL.style.color = "green";
+        //    komunikatL.textContent = "Zalogowano pomyślnie!";
 
-            setTimeout(zaloguj, 1000);
-        }
-        else {
-            komunikatL.style.color = "red";
-            komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
-        }
+        //    setTimeout(zaloguj, 1000);
+        //}
+        //else {
+        //    komunikatL.style.color = "red";
+        //    komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
+        //}
         //póki co dwie opcje ewentualna rozbudowa (np. brak "małpy" w loginie, nieistniejący login, błędne hasło)
+        //-----
+
+        //logowanie bez bazy
+        komunikatL.style.color = "green";
+        komunikatL.textContent = "Zalogowano pomyślnie!";
+        sessionStorage.setItem("poziom", "Łatwy");
+        setTimeout(zaloguj, 1000);
     });
 
     document.getElementById('anuluj_z').addEventListener('click', function () {

@@ -14,7 +14,8 @@
     <div class="pasek">
         <div class="lewo">
             <img src=~/Obrazy/logo.png style="cursor: default;" />
-            <a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>
+            @*<a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>*@
+            <a style="font-size: 20px;">I.P.O. - Internetowa Pielęgnacja Oczu</a>
         </div>
         <div class="prawo">
             <img src=~/Obrazy/info.png onclick="info()" />
@@ -43,7 +44,15 @@
 
     </div>
 
-    <div class="info_poziom" style="top: 110px;">Poziom: Łatwy</div>
+    @*rozwiązanie pod bazę danych
+        <div class="info_poziom" style="top: 110px;">Poziom: Łatwy</div>*@
+
+    <div class="info_poziom" style="top: 110px; color: #87CEFA;">
+        Wybierz poziom: 
+        <select id="lista">
+
+        </select>
+    </div>
 
 </body>
 </html>
@@ -54,11 +63,41 @@
 
 <script>
     let aktualneikony = "";
+    let lista = document.getElementById("lista");
+    let cooldown = 100;
+
+    poziom();
+
+    //ustawianie poziomu bez bazy
+    function poziom() {
+        let poziom = sessionStorage.getItem("poziom");
+        lista.innerHTML = poziomHTML(poziom);
+    }
+
+    function poziomHTML(poziom) {
+        let str = '';
+        if (poziom === "Łatwy") {
+            str = '<option>Łatwy</option><option>Średni</option><option>Trudny</option>';
+        }
+        else if (poziom === "Średni") {
+            str = '<option>Średni</option><option>Łatwy</option><option>Trudny</option>';
+        }
+        else {
+            str = '<option>Trudny</option><option>Łatwy</option><option>Średni</option>';
+        }
+        return str;
+    }
+
+    lista.addEventListener('change', function () {
+        var wybranaOpcja = lista.value;
+        sessionStorage.setItem("poziom", wybranaOpcja);
+    });
 
     function pokaztesty(zmienna) {
         if (zmienna === aktualneikony) {
             return;
         }
+        aktualneikony = zmienna;
 
         document.getElementById('testynowe').style.animation = 'zmniejszenie 1.01s ease-out';
 
@@ -67,17 +106,16 @@
                 document.getElementById('textruch').style.textDecoration = 'none';
                 document.getElementById('testynowe').innerHTML = koloryHTML();
                 document.getElementById('textkolor').style.textDecoration = 'underline';
-                aktualneikony = zmienna;
             }
             else if (zmienna === 'ruchy') {
                 document.getElementById('textkolor').style.textDecoration = 'none';
                 document.getElementById('testynowe').innerHTML = ruchyHTML();
                 document.getElementById('textruch').style.textDecoration = 'underline';
-                aktualneikony = zmienna;
             }
 
-            document.getElementById('testynowe').style.animation = 'powiekszenie 2s ease-out';
-        }, 1000);
+            document.getElementById('testynowe').style.animation = 'powiekszenie 1s ease-out';
+        }, cooldown);
+        cooldown = 1000;
     }
 
     function koloryHTML() {

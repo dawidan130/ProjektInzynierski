@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="info_poziom" id="info"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -33,6 +33,26 @@
 <script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
+    let poziom = 0;
+
+    //Poziom trudności sterowany lokalnie
+    start_Barwy();
+
+    function start_Barwy() {
+        let trudnosc = pobierz_poziom();
+
+        if (trudnosc === "Łatwy") {
+            poziom = 50;
+        }
+        else if (trudnosc === "Średni") {
+            poziom = 35;
+        }
+        else {
+            poziom = 20;
+        }
+        document.getElementById("info").innerHTML = poziomHTML();
+    };
+
     const przycisk = document.querySelector(".przycisk_wyniki");
     const liczbakolumn = 20;
     let pop_id;
@@ -42,15 +62,14 @@
     document.getElementById('kolumny').innerHTML = wygenerujKolumny();
 
     function nadpisz() {
-        tabela.style.marginTop = '5px';
-        tabela.style.marginBottom = '5px';
-
         if (iteracja === 5) {
             sessionStorage.setItem("pkt", punkty);
             sessionStorage.setItem("czas", czas_lacznie);
             wynik();
         }
         else {
+            tabela.style.marginTop = '5px';
+            tabela.style.marginBottom = '5px';
             przycisk.style.transform = "scale(0.8)";
             przycisk.style.opacity = 0;
             przycisk.disabled = true;
@@ -67,7 +86,6 @@
     }
 
     function wygenerujKolumny() {
-
         const min = 0;
         const max = 255;
 
@@ -76,7 +94,6 @@
         let b = Math.floor(Math.random() * (max - min + 1)) + min;
 
         let str = '';
-        let poziom = 50;
         let nowy_kolor_r = r;
         let nowy_kolor_g = g;
         let nowy_kolor_b = b;

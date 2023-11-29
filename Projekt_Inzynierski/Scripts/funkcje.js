@@ -41,7 +41,20 @@ function wynik() {
     window.location.href = "/Home/Wynik";
 }
 
+//Uruchamianie ponownie danego testu
 function uruchom_ponownie() {
     let test = sessionStorage.getItem("test");
     window.location.href = "/Home/" + test;
+}
+
+//Pobieranie aktualnego poziomu (rozwiązanie bez bazy)
+function pobierz_poziom() {
+    let poziom = sessionStorage.getItem("poziom");
+    return poziom;
+}
+
+function poziomHTML() {
+    let poziom = sessionStorage.getItem("poziom");
+    let str = 'Poziom: ' + poziom + '';
+    return str;
 }

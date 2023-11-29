@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="info_poziom" id="info"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -44,6 +44,28 @@
     let przyciski_odp = document.getElementById('przyciski');
     let kontener = document.getElementById("kontener");
     let przycisk_kon = document.getElementById("przycisk_koniec");
+
+    let rozmiar = "";
+
+    //Poziom trudności sterowany lokalnie
+    start_Ostrosc();
+
+    function start_Ostrosc() {
+        let trudnosc = pobierz_poziom();
+
+        if (trudnosc === "Łatwy") {
+            rozmiar = "50px";
+        }
+        else if (trudnosc === "Średni") {
+            rozmiar = "35px";
+            odpowiedz.style.fontSize = "15px";
+        }
+        else {
+            rozmiar = "20px";
+            odpowiedz.style.fontSize = "12px";
+        }
+        document.getElementById("info").innerHTML = poziomHTML();
+    };
 
     let min = 3;
     let max = 8;
@@ -69,7 +91,7 @@
 
                 numer_pytania.innerHTML = 'Pytanie pierwsze';
                 tresc_pytania.innerHTML = 'Ile krawędzi ma poniższy obiekt?';
-                odpowiedz.innerHTML = '<div id="obiekt" style="background-color: #87CEFA; max-width: 50px; min-height: 50px;"></div>';
+                odpowiedz.innerHTML = '<div id="obiekt" style="background-color: #87CEFA; max-width: ' + rozmiar + '; min-height: ' + rozmiar + ';"></div>';
                 document.getElementById('obiekt').classList.add(randomowyobiekt);
 
                 //Generowanie odpowiedzi

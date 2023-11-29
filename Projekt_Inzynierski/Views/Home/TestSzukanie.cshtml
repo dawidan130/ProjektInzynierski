@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="info_poziom">Poziom: Łatwy</div>
+    <div class="info_poziom" id="info"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -34,6 +34,26 @@
 
 <script>
     let poczatek;
+
+    let trudnosc = 0; //0.5 = 50%, 0.25 = 75%, 0.1 = 90% // stopień wypełnienia tabelki
+
+    //Poziom trudności sterowany lokalnie
+    start_Szukanie();
+
+    function start_Szukanie() {
+        let trudnosc = pobierz_poziom();
+
+        if (trudnosc === "Łatwy") {
+            poziom = 0.5;
+        }
+        else if (trudnosc === "Średni") {
+            poziom = 0.25;
+        }
+        else {
+            poziom = 0.1;
+        }
+        document.getElementById("info").innerHTML = poziomHTML();
+    };
 
     //Generowanie obiektu
     let min = 3;
@@ -67,7 +87,6 @@
     let kolumny = 25;
     let komorki = wiersze * kolumny;
     let iterator = 0;
-    let trudnosc = 0.5; //0.5 = 50%, 0.25 = 75%, 0.1 = 90% // stopień wypełnienia tabelki
     let rozmiar = 25; //rozmiar obiektów w planszy (wartość w px)
 
     //Wybranie miejsca w którym będzie się znajdował szukany obiekt
@@ -85,7 +104,7 @@
             }
             else {
                 let czyWystapi = Math.random();
-                if (czyWystapi >= trudnosc) {
+                if (czyWystapi >= poziom) {
                     let cyfra = LosowyObiekt();
                     let losowyKat = Math.floor(Math.random() * 360);
                     cell.innerHTML = '<div class="obiekt' + cyfra + '" style="background-color: #87CEFA; max-width: ' + rozmiar + 'px; min-height: ' + rozmiar + 'px; transform: rotate(' + losowyKat + 'deg);"></div>';

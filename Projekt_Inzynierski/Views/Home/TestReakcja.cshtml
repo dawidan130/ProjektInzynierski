@@ -28,7 +28,7 @@
         <button class="przycisk_wyniki" style="font-size: 25px; min-height: 60px; margin-top: 25px;" id="przycisk" onclick="start()">Start</button>
     </div>
 
-    <div id="info" class="info_poziom">Poziom: Łatwy</div>
+    <div id="info" class="info_poziom"></div>
     <div id="powrot" class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -43,7 +43,34 @@
         let przycisk = document.getElementById('przycisk');
         przycisk.style.opacity = 1;
         przycisk.style.transform = "translateY(0)";
+
+        //Poziom trudności sterowany lokalnie
+        start_Reakcja();
     });
+
+    let rozmiar = "";
+
+    function start_Reakcja() {
+        let trudnosc = pobierz_poziom();
+
+        if (trudnosc === "Łatwy") {
+            rozmiar = "100px";
+        }
+        else if (trudnosc === "Średni") {
+            rozmiar = "65px";
+        }
+        else {
+            rozmiar = "30px";
+        }
+
+        let kropki = document.querySelectorAll('.kropka');
+        kropki.forEach(function (kropka) {
+            kropka.style.width = rozmiar;
+            kropka.style.height = rozmiar;
+        });
+
+        document.getElementById("info").innerHTML = poziomHTML();
+    };
 
     function usun(id) {
         let kolko = document.getElementById(id);
@@ -116,11 +143,10 @@
     function wygenerujKropke() {
         let body = document.getElementById('body');
         body.innerHTML = '';
-
         body.classList.remove = 'body_test';
         body.classList.add = 'body_losowe';
 
-        body.innerHTML = '<span id="' + liczba + '" class="kropka" style="position: absolute;" onclick="nowakropka(' + liczba + ')">' + liczba + '</span>';
+        body.innerHTML = '<span id="' + liczba + '" class="kropka" style="position: absolute; height: ' + rozmiar + '; width: ' + rozmiar + ';" onclick="nowakropka(' + liczba + ')">' + liczba + '</span>';
 
         kropka = document.getElementById(liczba);
 

@@ -111,24 +111,50 @@
     }, 1000);
 
     if (pkt === 'null') {
-        switch (true) {
-            case z_czas < 5:
-                pkt = 5;
+        switch (test) {
+            case 'TestReakcja':
+                switch (true) {
+                    case z_czas < 3:
+                        pkt = 5;
+                        break;
+                    case z_czas >= 3 && z_czas < 4:
+                        pkt = 4;
+                        break;
+                    case z_czas >= 4 && z_czas < 6:
+                        pkt = 3;
+                        break;
+                    case z_czas >= 6 && z_czas < 8:
+                        pkt = 2;
+                        break;
+                    case z_czas >= 8 && z_czas < 10:
+                        pkt = 1;
+                        break;
+                    case z_czas >= 10:
+                        pkt = 0;
+                        break;
+                }
                 break;
-            case z_czas >= 5 && z_czas < 10:
-                pkt = 4;
-                break;
-            case z_czas >= 10 && z_czas < 15:
-                pkt = 3;
-                break;
-            case z_czas >= 15 && z_czas < 20:
-                pkt = 2;
-                break;
-            case z_czas >= 20 && z_czas < 25:
-                pkt = 1;
-                break;
-            case z_czas >= 25:
-                pkt = 0;
+            case 'TestSzukanie':
+                switch (true) {
+                    case z_czas < 15:
+                        pkt = 5;
+                        break;
+                    case z_czas >= 15 && z_czas < 20:
+                        pkt = 4;
+                        break;
+                    case z_czas >= 20 && z_czas < 30:
+                        pkt = 3;
+                        break;
+                    case z_czas >= 30 && z_czas < 45:
+                        pkt = 2;
+                        break;
+                    case z_czas >= 45 && z_czas < 60:
+                        pkt = 1;
+                        break;
+                    case z_czas >= 60:
+                        pkt = 0;
+                        break;
+                }
                 break;
         }
         setTimeout(() => {
