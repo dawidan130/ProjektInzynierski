@@ -8,7 +8,18 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Test tablice Ishary</title>
+    <title>I.P.O - Test tablice Ishihary</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 <body class="body_test">
     <div class="kontyner_test">
@@ -19,7 +30,7 @@
 
         </div>
         <label id="label" for="cyfra">Wprowadź cyfrę:</label>
-        <input style="border-radius: 10px;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
+        <input style="border-radius: 10px; -webkit-appearance: none;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
         <button style="margin-top: 10px; opacity: 0;" id="przycisk" class="przycisk_wyniki" disabled onclick="kolejnaTablica()">Dalej</button>
     </div>
 
@@ -115,8 +126,12 @@
     let stop = false;
 
     input.addEventListener('input', function (event) {
-        if (!stop) {
-            let wpisanaWartosc = event.target.value;
+        let wpisanaWartosc = event.target.value;
+        let czyCyfra = parseFloat(wpisanaWartosc);
+        if (isNaN(czyCyfra)) {
+            event.target.value = '';
+        }
+        else if (!stop && !isNaN(czyCyfra)) {
             if (wpisanaWartosc.length >= poziom) {
                 koniec = new Date();
                 stop = true;
@@ -151,9 +166,11 @@
                 }, 500);
 
                 czas_lacznie += (koniec - start) / 1000;
-                console.log(czas_lacznie);
                 iteracja += 1;
             }
+        }
+        else {
+            stop = false;
         }
     });
 

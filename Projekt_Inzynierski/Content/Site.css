@@ -62,7 +62,7 @@
 }
 
 .przyciski_glowna {
-    width: 300px;
+    max-width: 300px;
     display: flex;
     justify-content: space-between;
     column-gap: 5%;
@@ -316,6 +316,10 @@
     outline: none;
 }
 
+.info_poziom input[type="radio"] {
+    transform: scale(1.25);
+}
+
 /*Strona z informacjami*/
 
 .tabela_info {
@@ -456,6 +460,20 @@
 }
 
 /*Figury*/
+.obiekt0 {
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.obiekt1 {
+    aspect-ratio: 1;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.obiekt2 {
+    aspect-ratio: 1;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
 
 .obiekt3 {
     aspect-ratio: 1;
@@ -605,7 +623,7 @@
 .kropka {
     height: 100px;
     width: 100px;
-    font-size: 25px;
+    font-size: 2.5vh;
     background-color: #87CEFA;
     border-radius: 50%;
     display: flex;

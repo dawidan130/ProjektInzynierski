@@ -6,23 +6,23 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Test ostrości wzroku</title>
 </head>
-<body class="body_test">
+<body class="body_test" style="touch-action: manipulation; overflow: hidden;">
     <div class="kontyner_test">
         <div class="kontener-ostrosc" id="kontener">
             <div class="tekst_test" id="numer_pytania"></div>
             <a style="font-size: 24px;" id="tresc_pytania"></a>
-            <div class="div_odp" id="odpowiedz">
+            <div class="div_odp" style="font-size: 1.75vh;" id="odpowiedz">
 
             </div>
             <div class="przyciski_odp" id="przyciski">
 
             </div>
             <div>
-                <button class="przycisk_wyniki" onclick="resetAnimacji()" id="przycisk_koniec" disabled>Następne pytanie</button>
+                <button class="przycisk_wyniki" onclick="resetAnimacji()" id="przycisk_koniec" disabled style="font-size: 24px;">Następne pytanie</button>
             </div>
         </div>
     </div>
@@ -38,6 +38,10 @@
 <script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
+    document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+    });
+
     let numer_pytania = document.getElementById('numer_pytania');
     let tresc_pytania = document.getElementById('tresc_pytania');
     let odpowiedz = document.getElementById('odpowiedz');
@@ -54,15 +58,15 @@
         let trudnosc = pobierz_poziom();
 
         if (trudnosc === "Łatwy") {
-            rozmiar = "50px";
+            rozmiar = "5vh";
         }
         else if (trudnosc === "Średni") {
-            rozmiar = "35px";
-            odpowiedz.style.fontSize = "15px";
+            rozmiar = "3.5vh";
+            odpowiedz.style.fontSize = "1.5vh";
         }
         else {
-            rozmiar = "20px";
-            odpowiedz.style.fontSize = "12px";
+            rozmiar = "2vh";
+            odpowiedz.style.fontSize = "1.25vh";
         }
         document.getElementById("info").innerHTML = poziomHTML();
     };

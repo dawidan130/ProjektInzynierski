@@ -54,13 +54,13 @@
         let trudnosc = pobierz_poziom();
 
         if (trudnosc === "Łatwy") {
-            rozmiar = "100px";
+            rozmiar = "10vh";
         }
         else if (trudnosc === "Średni") {
-            rozmiar = "65px";
+            rozmiar = "7.5vh";
         }
         else {
-            rozmiar = "30px";
+            rozmiar = "5vh";
         }
 
         let kropki = document.querySelectorAll('.kropka');
@@ -116,8 +116,8 @@
     }
 
     function losowaPozycja() {
-        const wysokosc = window.innerHeight;
-        const szerokosc = window.innerWidth;
+        let wysokosc = window.innerHeight;
+        let szerokosc = window.innerWidth;
 
         let randomX = Math.floor(Math.random() * (szerokosc - 105));
         let randomY = Math.floor(Math.random() * (wysokosc - 105));

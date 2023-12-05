@@ -13,15 +13,15 @@
 <body class="body_menu">
     <div class="pasek">
         <div class="lewo">
-            <img src=~/Obrazy/logo.png style="cursor: default;" />
+            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="wyloguj()"/>
             @*<a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>*@
             <a style="font-size: 20px;">I.P.O. - Internetowa Pielęgnacja Oczu</a>
         </div>
         <div class="prawo">
             <img src=~/Obrazy/info.png onclick="info()" />
-            <img src=~/Obrazy/stat.png onclick="statystyki()" />
+            @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
             <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
-            <img src=~/Obrazy/logout.png onclick="wyloguj()" />
+            <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
         </div>
     </div>
 
@@ -47,11 +47,8 @@
     @*rozwiązanie pod bazę danych
         <div class="info_poziom" style="top: 110px;">Poziom: Łatwy</div>*@
 
-    <div class="info_poziom" style="top: 110px; color: #87CEFA;">
-        Wybierz poziom: 
-        <select id="lista">
+    <div class="info_poziom" style="top: 110px; color: #87CEFA;" id="lista">
 
-        </select>
     </div>
 
 </body>
@@ -77,21 +74,20 @@
     function poziomHTML(poziom) {
         let str = '';
         if (poziom === "Łatwy") {
-            str = '<option>Łatwy</option><option>Średni</option><option>Trudny</option>';
+            str = 'Wybierz poziom: <label><input type="radio" name="poziom" value="Łatwy" checked onchange="zmianaPoziomu(\'Łatwy\')"> Łatwy </label><label><input type="radio" name="poziom" value="Średni" onchange="zmianaPoziomu(\'Średni\')"> Średni </label><label><input type="radio" name="poziom" value="Trudny" onchange="zmianaPoziomu(\'Trudny\')"> Trudny </label>';
         }
         else if (poziom === "Średni") {
-            str = '<option>Średni</option><option>Łatwy</option><option>Trudny</option>';
+            str = 'Wybierz poziom: <label><input type="radio" name="poziom" value="Łatwy" onchange="zmianaPoziomu(\'Łatwy\')"> Łatwy </label><label><input type="radio" name="poziom" value="Średni" checked onchange="zmianaPoziomu(\'Średni\')"> Średni </label><label><input type="radio" name="poziom" value="Trudny" onchange="zmianaPoziomu(\'Trudny\')"> Trudny </label>';
         }
-        else {
-            str = '<option>Trudny</option><option>Łatwy</option><option>Średni</option>';
+        else if (poziom === "Trudny"){
+            str = 'Wybierz poziom: <label><input type="radio" name="poziom" value="Łatwy" onchange="zmianaPoziomu(\'Łatwy\')"> Łatwy </label><label><input type="radio" name="poziom" value="Średni" onchange="zmianaPoziomu(\'Średni\')"> Średni </label><label><input type="radio" name="poziom" value="Trudny" checked onchange="zmianaPoziomu(\'Trudny\')"> Trudny </label>';
         }
         return str;
     }
 
-    lista.addEventListener('change', function () {
-        var wybranaOpcja = lista.value;
-        sessionStorage.setItem("poziom", wybranaOpcja);
-    });
+    function zmianaPoziomu(poziom) {
+        sessionStorage.setItem("poziom", poziom);
+    }
 
     function pokaztesty(zmienna) {
         if (zmienna === aktualneikony) {
@@ -120,7 +116,7 @@
 
     function koloryHTML() {
         let str = '';
-        str += '<div class="ikona2"><a>Tablice Ishary</a><img src="/Obrazy/TestIshary.png" onclick="starttest(\'TestIshary\')"></div>';
+        str += '<div class="ikona2"><a>Tablice Ishihary</a><img src="/Obrazy/TestIshary.png" onclick="starttest(\'TestIshary\')"></div>';
         str += '<div class="ikona2"><a>Rozróżnianie barw</a><img src="/Obrazy/TestBarwy.png" onclick="starttest(\'TestBarwy\')"></div>';
         return str;
     }

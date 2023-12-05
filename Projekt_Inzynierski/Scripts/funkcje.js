@@ -2,6 +2,7 @@
 //------
 //Funckja logowania
 function zaloguj() {
+    sessionStorage.setItem("poziom", "Średni");
     window.location.href = "/Home/MenuGlowne";
 }
 
