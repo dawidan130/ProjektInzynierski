@@ -13,12 +13,12 @@
 <body class="body_menu">
     <div class="pasek">
         <div class="lewo">
-            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="wyloguj()"/>
+            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="wyloguj()" title="Strona główna"/>
             @*<a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>*@
             <a style="font-size: 20px;">I.P.O. - Internetowa Pielęgnacja Oczu</a>
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/info.png onclick="info()" />
+            <img src=~/Obrazy/info.png onclick="info()" title="Opisy ćwiczeń"/>
             @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
             <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
@@ -26,17 +26,17 @@
     </div>
 
     <div class="kontener-ikony">
-        <div class="ikona">
-            <a id="textkolor">Testy kolorystyczne</a>
-            <img src="~/Obrazy/testkolory.png" onclick="pokaztesty('kolory')">
+        <div class="ikona" onclick="pokaztesty('kolory')" title="Rozwiń listę">
+            <a id="textkolor">Ćwiczenia kolorystyczne</a>
+            <img src="~/Obrazy/testkolory.png">
         </div>
-        <div class="ikona">
-            <a id="textruch">Testy ruchowo-wzrokowe</a>
-            <img src="~/Obrazy/testruch.png" onclick="pokaztesty('ruchy')">
+        <div class="ikona" onclick="pokaztesty('ruchy')" title="Rozwiń listę">
+            <a id="textruch">Ćwiczenia ruchowo-wzrokowe</a>
+            <img src="~/Obrazy/testruch.png">
         </div>
-        <div class="ikona">
-            <a>Test ostrości wzroku</a>
-            <img src="~/Obrazy/TestOstrosc.png" onclick="starttest('TestOstrosc')">
+        <div class="ikona" onclick="starttest('TestOstrosc')" title="Uruchom ćwiczenie">
+            <a>Ćwiczenie ostrości wzroku</a>
+            <img src="~/Obrazy/TestOstrosc.png">
         </div>
     </div>
 
@@ -116,16 +116,16 @@
 
     function koloryHTML() {
         let str = '';
-        str += '<div class="ikona2"><a>Tablice Ishihary</a><img src="/Obrazy/TestIshary.png" onclick="starttest(\'TestIshary\')"></div>';
-        str += '<div class="ikona2"><a>Rozróżnianie barw</a><img src="/Obrazy/TestBarwy.png" onclick="starttest(\'TestBarwy\')"></div>';
+        str += '<div class="ikona2" onclick="starttest(\'TestIshary\')" title="Uruchom ćwiczenie"><a>Tablice Ishihary</a><img src="/Obrazy/TestIshary.png"></div>';
+        str += '<div class="ikona2" onclick="starttest(\'TestBarwy\')" title="Uruchom ćwiczenie"><a>Rozróżnianie barw</a><img src="/Obrazy/TestBarwy.png"></div>';
         return str;
     }
 
     function ruchyHTML() {
         let str = '';
         //str += '<div class="ikona2"><a>Śledzenie obiektu</a><img src="/Obrazy/TestSledzenie.png" onclick="starttest(\'TestSledzenie\')"></div>';
-        str += '<div class="ikona2"><a>Czas reakcji</a><img src="/Obrazy/TestReakcja.png" onclick="starttest(\'TestReakcja\')"></div>';
-        str += '<div class="ikona2"><a>Wyszukiwanie obiektu</a><img src="/Obrazy/TestSzukanie.png" onclick="starttest(\'TestSzukanie\')"></div>';
+        str += '<div class="ikona2" onclick="starttest(\'TestReakcja\')" title="Uruchom ćwiczenie"><a>Czas reakcji</a><img src="/Obrazy/TestReakcja.png"></div>';
+        str += '<div class="ikona2" onclick="starttest(\'TestSzukanie\')" title="Uruchom ćwiczenie"><a>Wyszukiwanie obiektu</a><img src="/Obrazy/TestSzukanie.png"></div>';
         return str;
     }
 </script>

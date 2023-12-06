@@ -14,10 +14,10 @@
     <div class="pasek">
         <div class="lewo">
             <img src=~/Obrazy/info.png style="cursor: default;" />
-            <a style="font-size: 20px;">Poznaj rodzaje testów oraz zasady w nich panujące</a>
+            <a style="font-size: 20px;">Poznaj rodzaje ćwiczeń oraz zasady w nich panujące</a>
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/logo.png onclick="menu()" />
+            <img src=~/Obrazy/logo.png onclick="menu()" title="Powrót do menu"/>
             @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
             <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
             <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
@@ -28,10 +28,10 @@
         <table class="tabela_info">
             <tr style="height: 50px;">
                 <td class="opis_kategoria">
-                    Ikona testu
+                    Ikona ćwiczenia
                 </td>
                 <td class="opis_kategoria">
-                    Opis testu
+                    Opis ćwiczenia
                 </td>
                 <td class="opis_kategoria">
                     Opis trudności
@@ -42,10 +42,12 @@
                     <img src="~/Obrazy/TestOstrosc.png">
                 </td>
                 <td class="opis_testu">
-                    Test składa się z 5 kolejnych pytań, w każdym wymagane jest zaznaczenie poprawnej odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo. Pomiar czasu jest uruchamiany w momencie pojawienia się przycisku.
+                    Ćwiczenie składa się z 5 kolejnych pytań, w których wymagane jest zaznaczenie poprawnej odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo.
                 </td>
                 <td class="opis_testu">
-                    Wraz ze wzrostem poziomu trudności pomniejszeniu ulegają elementy z których zczytywane są odpowiedzi np. wielkość figury czy rozmiar czcionki napisów. 
+                    Łatwy: Duża czcionka. <br />
+                    Średni: Normalna czcionka. <br />
+                    Trudny: Mała czcionka.
                 </td>
             </tr>
             <tr>
@@ -53,7 +55,7 @@
                     <img src="~/Obrazy/testkolory.png">
                 </td>
                 <td class="opis_kategoria" colspan="2">
-                    Testy opierające się na kolorach
+                    Ćwiczenia opierające się na kolorach
                 </td>
             </tr>
             <tr>
@@ -61,10 +63,12 @@
                     <img src="~/Obrazy/TestIshary.png">
                 </td>
                 <td class="opis_testu">
-                    Test składa się z 5 wyświetlanych tablic Ishary. Po pokazaniu się obrazu wymagane jest wpisanie w pole wartości liczbowej odpowiadającej liczbie na tablicy. Czas jest mierzony pomiędzy wyświetleniem tablicy, a wpisaniem wyniku.
+                    Ćwiczenie składa się z 5 wyświetlanych tablic Isihiary. Wymagane jest odczytanie z niej cyrfy lub liczby i wpisanie w polu znajdującym się pod obrazem.
                 </td>
                 <td class="opis_testu">
-                    Wraz ze wzrostem poziomu trudności zmieniają się natężenia tablic oraz liczba cyfr. Przy łatwym poziomie kontrast kolorystyczny cyfry na tablicy będzie wysoki. Wraz ze wzrostem poziomu kontrast będzie się pomniejszał oraz będzie się zwiększać ilość cyfr. 
+                    Łatwy: 1 cyfra do rozpoznania, wysoki kontrast. <br />
+                    Średni: 2 cyfry do rozpoznania, średni kontrast. <br />
+                    Trudny: 3 cyfry do rozpoznania, niski kontrast.
                 </td>
             </tr>
             <tr>
@@ -72,10 +76,12 @@
                     <img src="~/Obrazy/TestBarwy.png">
                 </td>
                 <td class="opis_testu">
-                    Test składa się z 5 kolejno losowo generowanych tablic z barwami gdzie jedna z nich różni się od innych swoim natężeniem. Wymagane jest zaznaczenie która z barw odstaje od reszty. Czas jest mierzony pomiędzy wyświetleniem barw, a wyborem odpowiedniej barwy.
+                    Ćwiczenie składa się z 5 kolejno losowo generowanych tablic z barwami gdzie jedna z nich różni się od reszty swoją intensywnością. Wymagane jest kliknięcie w różniącą się barwę.
                 </td>
                 <td class="opis_testu">
-                    Wraz ze wzrostem poziomu trudności będzie pomniejszać się różnica pomiędzy szukanym kolorem, a pozostałymi. Jego intensywność będzie ulegać zmniejszeniu przez co będzie trudniejszy do rozróżnienia. 
+                    Łatwy: Duża różnica w intensywności. <br />
+                    Średni: Średnia różnica w intensywności. <br />
+                    Trudny: Mała różnica w intensywności.
                 </td>
             </tr>
             <tr>
@@ -83,7 +89,7 @@
                     <img src="~/Obrazy/testruch.png">
                 </td>
                 <td class="opis_kategoria" colspan="2">
-                    Testy opierające się na ruchu oczu
+                    Ćwiczenia opierające się na ruchu oczu
                 </td>
             </tr>
             <tr>
@@ -91,10 +97,12 @@
                     <img src="~/Obrazy/TestReakcja.png">
                 </td>
                 <td class="opis_testu">
-                    Po uruchomieniu testu i przeczytaniu informacji wstępnych wyświetlane będzie 5 kolejnych punktów w losowym miejscu na ekranie. Wymagane jest jak najszybsze kliknięcie w dany obiekt. Czas jest mierzony pomiędzy wyświetleniem punktu, a kliknięciem w niego.
+                    Ćwiczenie polega na jak najszybszym kliknięciu w 5 kropek pojawiających się kolejno na ekranie.
                 </td>
                 <td class="opis_testu">
-                    Wraz ze wzrostem poziomu trudności wielkość punktów będzie ulegać pomniejszeniu. Sama wygląd obiektów jest pokazany w teście przez kliknięciem przycisku Start, gdzie można zobaczyć jak wygląda mechanizm klikania w kropki. 
+                    Łatwy: Duże kropki. <br />
+                    Średni: Średnie kropki. <br />
+                    Trudny: Małe kropki.
                 </td>
             </tr>
             <tr>
@@ -102,10 +110,12 @@
                     <img src="~/Obrazy/TestSzukanie.png">
                 </td>
                 <td class="opis_testu">
-                    Test polega na znalezieniu na planszy wskazanego obiektu. Wskazana figura występuje na planszy tylko raz z tą samą rotacją. Po znalezieniu obiektu należy na niego kliknąć w celu zakończenia testu co zakończy również odmierzanie czasu.
+                    Ćwiczenie polega na odnalezieniu wskazanej figury na planszy z rozmaitymi figurami.
                 </td>
                 <td class="opis_testu">
-                    Wraz ze wzrostem poziomu trudności będzie się zwiększać zapełnienie planszy. Przy łatwym poziomie zapełnienie planszy oscyluje na poziomie 50%, za to przy trudnym - koło 90%.
+                    Łatwy: Bardziej różniące się figury, mała ilość figur na planszy. <br />
+                    Średni: Różniące się figury, średnia ilość figur na planszy. <br />
+                    Trudny: Podobne figury, duża ilość figur na planszy.
                 </td>
             </tr>
         </table>

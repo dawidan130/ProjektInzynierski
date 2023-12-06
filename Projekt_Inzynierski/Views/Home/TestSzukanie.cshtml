@@ -8,11 +8,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Test szukania obiektu</title>
+    <title>I.P.O - Ćwiczenie szukania obiektu</title>
 </head>
 <body class="body_test">
     <div class="kontyner_test" id="pole">
-        <div class="tekst_test" style="margin-bottom: 10px;">
+        <div class="tekst_test" style="margin-bottom: 10px; margin-top: 50px;">
             Znajdź na planszy poniżej następujący obiekt
         </div>
         <div id="obiekt" style="background-color: #87CEFA; max-width: 50px; min-height: 50px; margin-bottom: 20px;"></div>
@@ -23,6 +23,7 @@
     </div>
 
     <div class="info_poziom" id="info"></div>
+    <div class="info_czas" id="info_czas"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -34,6 +35,7 @@
 
 <script>
     let poczatek;
+    let info_czas = document.getElementById("info_czas");
 
     let trudnosc = 0; //0.5 = 50%, 0.25 = 75%, 0.1 = 90% // stopień wypełnienia tabelki
     let min = 0;
@@ -73,6 +75,7 @@
             rozmiar = 25;
         }
         document.getElementById("info").innerHTML = poziomHTML();
+        info_czas.innerHTML = 'Pomiar czasu: Nie rozpoczęty';
     };
 
     //Generowanie obiektu
@@ -136,10 +139,12 @@
 
     setTimeout(function () {
         tabelka.style.opacity = 1;
+        info_czas.innerHTML = 'Pomiar czasu: Trwa';
         poczatek = new Date();
     }, 1000);
 
     function znaleziono() {
+        info_czas.innerHTML = 'Pomiar czasu: Zakończony';
         let koniec = new Date();
         let czas_lacznie = (koniec - poczatek) / 1000;
         sessionStorage.setItem("czas", czas_lacznie);

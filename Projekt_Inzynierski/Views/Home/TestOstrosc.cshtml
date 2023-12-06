@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Test ostrości wzroku</title>
+    <title>I.P.O - Ćwiczenie ostrości wzroku</title>
 </head>
 <body class="body_test" style="touch-action: manipulation; overflow: hidden;">
     <div class="kontyner_test">
@@ -28,6 +28,7 @@
     </div>
 
     <div class="info_poziom" id="info"></div>
+    <div class="info_czas" id="info_czas"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -38,16 +39,13 @@
 <script type="text/javascript" src="~/Scripts/refresh.js"></script>
 
 <script>
-    document.addEventListener('gesturestart', function (e) {
-        e.preventDefault();
-    });
-
     let numer_pytania = document.getElementById('numer_pytania');
     let tresc_pytania = document.getElementById('tresc_pytania');
     let odpowiedz = document.getElementById('odpowiedz');
     let przyciski_odp = document.getElementById('przyciski');
     let kontener = document.getElementById("kontener");
     let przycisk_kon = document.getElementById("przycisk_koniec");
+    let info_czas = document.getElementById("info_czas");
 
     let rozmiar = "";
 
@@ -69,6 +67,7 @@
             odpowiedz.style.fontSize = "1.25vh";
         }
         document.getElementById("info").innerHTML = poziomHTML();
+        info_czas.innerHTML = 'Pomiar czasu: Nie rozpoczęty';
     };
 
     let min = 3;
@@ -291,6 +290,7 @@
                 przyciski.querySelectorAll('button').forEach(function (przycisk) {
                     przycisk.disabled = false;
                     przycisk_kon.disabled = false;
+                    info_czas.innerHTML = 'Pomiar czasu: Trwa';
                     start = new Date();
                 });
             }, 1000);
@@ -318,6 +318,7 @@
                     przyciski.querySelectorAll('button').forEach(function (przycisk) {
                         przycisk.disabled = false;
                         przycisk_kon.disabled = false;
+                        info_czas.innerHTML = 'Pomiar czasu: Trwa';
                         start = new Date();
                     });
                 }, 500);
@@ -327,6 +328,7 @@
 
     function Zlicz_Wynik() {
         koniec = new Date();
+        info_czas.innerHTML = 'Pomiar czasu: Wstrzymany';
         przycisk_kon.disabled = true;
 
         const poprawneOdpowiedzi = document.querySelectorAll('button[id="1"].aktywny').length;
@@ -336,6 +338,7 @@
         czas += (koniec - start) / 1000;
 
         if (iterator === 5) {
+            info_czas.innerHTML = 'Pomiar czasu: Zakończony';
             sessionStorage.setItem("pkt", punkty);
             sessionStorage.setItem("czas", czas);
             wynik();

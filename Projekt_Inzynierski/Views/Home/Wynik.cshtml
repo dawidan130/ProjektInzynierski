@@ -35,7 +35,7 @@
 
     </div>
 
-    <div class="logo_testu" style="font-size: 15px; font-style: italic;" id="info">
+    <div class="logo_testu" style="font-size: 20px; font-style: italic;" id="info">
 
     </div>
 
@@ -44,9 +44,9 @@
             <div id="logo_ponownie">
 
             </div>
-            <div>
-                <a>Menu główne</a>
-                <img src="~/Obrazy/logo.png" onclick="menu()" />
+            <div onclick="menu()" title="Powrót do menu">
+                <a style="user-select: none; cursor: pointer;">Menu główne</a>
+                <img src="~/Obrazy/logo.png"/>
             </div>
         </div>
     </div>
@@ -68,22 +68,22 @@
 
     switch (test) {
         case 'TestOstrosc':
-            nazwa = 'Test ostrości wzroku';
+            nazwa = 'Ćwiczenie ostrości wzroku';
             break;
         case 'TestBarwy':
-            nazwa = 'Test rozróżniania intensywności barw';
+            nazwa = 'Ćwiczenie rozróżniania intensywności barw';
             break;
         case 'TestIshary':
-            nazwa = 'Test z tablicami Ishary';
+            nazwa = 'Ćwiczenie z tablicami Ishary';
             break;
         case 'TestReakcja':
-            nazwa = 'Test szybkości reakcji';
+            nazwa = 'Ćwiczenie szybkości reakcji';
             break;
         case 'TestSzukanie':
-            nazwa = 'Test szybkości wyszukiwania obiektu';
+            nazwa = 'Ćwiczenie szybkości wyszukiwania obiektu';
             break;
         case 'TestSledzenie':
-            nazwa = 'Test dokładności śledzenia obiektu';
+            nazwa = 'Ćwiczenie dokładności śledzenia obiektu';
             break;
     }
 
@@ -179,5 +179,5 @@
     div_wynik.innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
     div_czas.innerHTML = '<div>Czas: ' + z_czas + 's</div>';
 
-    document.getElementById('logo_ponownie').innerHTML = '<a>Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png" onclick="uruchom_ponownie()" />';
+    document.getElementById('logo_ponownie').innerHTML = '<div style="padding: 0;" onclick="uruchom_ponownie()" title="Uruchom ćwiczenie" ><a style="user-select: none; cursor: pointer;">Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png"/></div>';
 </script>

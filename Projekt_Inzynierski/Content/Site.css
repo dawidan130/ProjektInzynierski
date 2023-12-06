@@ -254,6 +254,8 @@
 .ikona a {
     font-size: 20px;
     white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
 }
 
 .ikona img {
@@ -318,6 +320,24 @@
 
 .info_poziom input[type="radio"] {
     transform: scale(1.25);
+}
+
+.info_czas {
+    position: fixed;
+    width: 40%;
+    top: 2px;
+    text-align: center;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, 0);
+    color: rgba(135, 206, 250, 0.5);
+    font-size: 30px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.info_czas:hover {
+    color: #87CEFA;
 }
 
 /*Strona z informacjami*/

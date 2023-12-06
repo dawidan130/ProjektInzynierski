@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Test rozróżniania barw</title>
+    <title>I.P.O - Ćwiczenie rozróżniania barw</title>
 </head>
 <body class="body_test">
     <div class="kontyner_test">
@@ -23,6 +23,7 @@
     </div>
 
     <div class="info_poziom" id="info"></div>
+    <div class="info_czas" id="info_czas"></div>
     <div class="powrot" onclick="menu()">Powrót do menu</div>
 </body>
 </html>
@@ -34,6 +35,7 @@
 
 <script>
     let poziom = 0;
+    let info_czas = document.getElementById("info_czas");
 
     //Poziom trudności sterowany lokalnie
     start_Barwy();
@@ -51,6 +53,7 @@
             poziom = 20;
         }
         document.getElementById("info").innerHTML = poziomHTML();
+        info_czas.innerHTML = 'Pomiar czasu: Nie rozpoczęty';
     };
 
     const przycisk = document.querySelector(".przycisk_wyniki");
@@ -157,6 +160,7 @@
         });
         setTimeout(() => {
             stop = false;
+            info_czas.innerHTML = 'Pomiar czasu: Trwa';
             start = new Date();
         }, 1600);
     }
@@ -177,6 +181,13 @@
                 }
                 else {
                     zle(kliknietaKolumna);
+                }
+
+                if (iteracja === 5) {
+                    info_czas.innerHTML = 'Pomiar czasu: Zakończony';
+                }
+                else {
+                    info_czas.innerHTML = 'Pomiar czasu: Wstrzymany';
                 }
                 koniec = new Date();
                 czas_lacznie += (koniec - start) / 1000;
