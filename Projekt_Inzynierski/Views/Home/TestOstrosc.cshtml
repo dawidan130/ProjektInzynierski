@@ -27,9 +27,14 @@
         </div>
     </div>
 
-    <div class="info_poziom" id="info"></div>
-    <div class="info_czas" id="info_czas"></div>
-    <div class="powrot" onclick="menu()">Powrót do menu</div>
+    <button class="powrot" onclick="menu()" title="Anuluj ćwiczenie">Powrót do menu</button>
+
+    <div class="zegar" id="zegar" title="Stan pomiaru czasu">
+        <div class="zegar_D" id="duza"> </div>
+        <div class="zegar_M" id="mala"> </div>
+    </div>
+
+    <div class="info_poziom" id="info" title="Aktulany poziom ćwiczenia"></div>
 </body>
 </html>
 
@@ -45,7 +50,8 @@
     let przyciski_odp = document.getElementById('przyciski');
     let kontener = document.getElementById("kontener");
     let przycisk_kon = document.getElementById("przycisk_koniec");
-    let info_czas = document.getElementById("info_czas");
+    let duzaWskazowka = document.getElementById("duza");
+    let malaWskazowka = document.getElementById("mala");
 
     let rozmiar = "";
 
@@ -67,7 +73,6 @@
             odpowiedz.style.fontSize = "1.25vh";
         }
         document.getElementById("info").innerHTML = poziomHTML();
-        info_czas.innerHTML = 'Pomiar czasu: Nie rozpoczęty';
     };
 
     let min = 3;
@@ -290,7 +295,8 @@
                 przyciski.querySelectorAll('button').forEach(function (przycisk) {
                     przycisk.disabled = false;
                     przycisk_kon.disabled = false;
-                    info_czas.innerHTML = 'Pomiar czasu: Trwa';
+                    duzaWskazowka.style.animationPlayState = 'running';
+                    malaWskazowka.style.animationPlayState = 'running';
                     start = new Date();
                 });
             }, 1000);
@@ -318,7 +324,8 @@
                     przyciski.querySelectorAll('button').forEach(function (przycisk) {
                         przycisk.disabled = false;
                         przycisk_kon.disabled = false;
-                        info_czas.innerHTML = 'Pomiar czasu: Trwa';
+                        duzaWskazowka.style.animationPlayState = 'running';
+                        malaWskazowka.style.animationPlayState = 'running';
                         start = new Date();
                     });
                 }, 500);
@@ -328,7 +335,8 @@
 
     function Zlicz_Wynik() {
         koniec = new Date();
-        info_czas.innerHTML = 'Pomiar czasu: Wstrzymany';
+        duzaWskazowka.style.animationPlayState = 'paused';
+        malaWskazowka.style.animationPlayState = 'paused';
         przycisk_kon.disabled = true;
 
         const poprawneOdpowiedzi = document.querySelectorAll('button[id="1"].aktywny').length;
@@ -338,7 +346,8 @@
         czas += (koniec - start) / 1000;
 
         if (iterator === 5) {
-            info_czas.innerHTML = 'Pomiar czasu: Zakończony';
+            duzaWskazowka.style.animationPlayState = 'paused';
+            malaWskazowka.style.animationPlayState = 'paused';
             sessionStorage.setItem("pkt", punkty);
             sessionStorage.setItem("czas", czas);
             wynik();

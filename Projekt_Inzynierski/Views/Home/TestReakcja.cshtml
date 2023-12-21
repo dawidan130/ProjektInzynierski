@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/Content/Site.css">
     <title>I.P.O - Ćwiczenie czasu reakcji</title>
 </head>
-<body class="body_test" id="body">
+<body class="body_test_bez_zegara" id="body">
     <div class="kontyner_test" id="pole">
         <div class="tekst_test">
             Klikaj w tak wyglądające obiekty:
@@ -28,8 +28,9 @@
         <button class="przycisk_wyniki" style="font-size: 25px; min-height: 60px; margin-top: 25px;" id="przycisk" onclick="start()">Start</button>
     </div>
 
-    <div id="info" class="info_poziom"></div>
-    <div id="powrot" class="powrot" onclick="menu()">Powrót do menu</div>
+    <button class="powrot" onclick="menu()" title="Anuluj ćwiczenie">Powrót do menu</button>
+
+    <div class="info_poziom" id="info" title="Aktulany poziom ćwiczenia"></div>
 </body>
 </html>
 

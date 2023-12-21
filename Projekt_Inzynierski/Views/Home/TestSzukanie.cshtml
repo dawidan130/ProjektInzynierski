@@ -22,9 +22,14 @@
         </div>
     </div>
 
-    <div class="info_poziom" id="info"></div>
-    <div class="info_czas" id="info_czas"></div>
-    <div class="powrot" onclick="menu()">Powrót do menu</div>
+    <button class="powrot" onclick="menu()" title="Anuluj ćwiczenie">Powrót do menu</button>
+
+    <div class="zegar" id="zegar" title="Stan pomiaru czasu">
+        <div class="zegar_D" id="duza"> </div>
+        <div class="zegar_M" id="mala"> </div>
+    </div>
+
+    <div class="info_poziom" id="info" title="Aktulany poziom ćwiczenia"></div>
 </body>
 </html>
 
@@ -35,7 +40,8 @@
 
 <script>
     let poczatek;
-    let info_czas = document.getElementById("info_czas");
+    let duzaWskazowka = document.getElementById("duza");
+    let malaWskazowka = document.getElementById("mala");
 
     let trudnosc = 0; //0.5 = 50%, 0.25 = 75%, 0.1 = 90% // stopień wypełnienia tabelki
     let min = 0;
@@ -75,7 +81,6 @@
             rozmiar = 25;
         }
         document.getElementById("info").innerHTML = poziomHTML();
-        info_czas.innerHTML = 'Pomiar czasu: Nie rozpoczęty';
     };
 
     //Generowanie obiektu
@@ -139,12 +144,14 @@
 
     setTimeout(function () {
         tabelka.style.opacity = 1;
-        info_czas.innerHTML = 'Pomiar czasu: Trwa';
+        duzaWskazowka.style.animationPlayState = 'running';
+        malaWskazowka.style.animationPlayState = 'running';
         poczatek = new Date();
     }, 1000);
 
     function znaleziono() {
-        info_czas.innerHTML = 'Pomiar czasu: Zakończony';
+        duzaWskazowka.style.animationPlayState = 'paused';
+        malaWskazowka.style.animationPlayState = 'paused';
         let koniec = new Date();
         let czas_lacznie = (koniec - poczatek) / 1000;
         sessionStorage.setItem("czas", czas_lacznie);

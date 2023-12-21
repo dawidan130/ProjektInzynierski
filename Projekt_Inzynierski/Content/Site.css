@@ -290,36 +290,10 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    color: rgba(135, 206, 250, 0.5);
+    color: #87CEFA;
     font-size: 30px;
     font-weight: bold;
     user-select: none;
-}
-
-.info_poziom:hover {
-    color: #87CEFA;
-}
-
-.info_poziom select {
-    width: 100px;
-    text-align: center;
-    font-family: Bahnschrift;
-    font-weight: bold;
-    color: #87CEFA;
-    font-size: 30px;
-    background: none;
-    border: none;
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    appearance:none;
-}
-
-.info_poziom select:focus {
-    outline: none;
-}
-
-.info_poziom input[type="radio"] {
-    transform: scale(1.25);
 }
 
 .info_czas {
@@ -362,10 +336,12 @@
 .tabela_info tr {
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
+    transition: linear 0.3s;
 }
 
 .tabela_info tr:hover {
     background-color: #182848;
+    transform: scale(105%);
 }
 
 @keyframes fadeIn {
@@ -452,6 +428,7 @@
 
 .tekst_test {
     font-size: 40px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -459,14 +436,20 @@
     position: fixed;
     top: 20px;
     left: 20px;
-    color: rgba(255, 0, 0, 0.5);
+    color: #87CEFA;
+    background-color: transparent;
+    border: solid 2px #87CEFA;
+    border-radius: 10px;
     font-size: 30px;
-    font-weight: bold;
-    user-select: none;
+    font-family: Bahnschrift;
+    transition: linear 0.2s;
 }
 
 .powrot:hover {
+    font-weight: bold;
+    transform: scale(110%);
     color: red;
+    border-color: red;
 }
 
 /*Test ostrości*/
@@ -758,4 +741,99 @@
 .kontener-wyniki img {
     max-width: 150px;
     cursor: pointer;
+}
+
+/*Zegar*/
+
+.zegar {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border: 5px solid #87CEFA;
+    border-radius: 50%;
+    left: 50%;
+    top: 50px;
+    background: white;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0px 0px 10px black;
+}
+
+.zegar_D {
+    position: absolute;
+    content: '';
+    height: 32.5px;
+    width: 5px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 2.5px);
+    border-radius: 5px;
+    transform: rotate(180deg);
+    animation: obrotZ 6s linear infinite;
+    transform-origin: top;
+    animation-play-state: paused;
+}
+
+.zegar_M {
+    position: absolute;
+    content: '';
+    height: 25px;
+    width: 5px;
+    background: black;
+    top: 50%;
+    left: calc(50% - 2.5px);
+    border-radius: 5px;
+    transform: rotate(180deg);
+    animation: obrotZ 72s linear infinite;
+    transform-origin: top;
+    animation-play-state: paused;
+}
+
+@keyframes obrotZ {
+    0% {
+        transform: rotate(-180deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+
+.body_test::before {
+    content: '';
+    position: absolute;
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    background: #87CEFA;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.body_test::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: black;
+    left: 50%;
+    top: 15px;
+    z-index: 2;
+    transform: translateX(-50%);
+    box-shadow: 32.5px 32.5px 0 0 black, -32.5px 32.5px 0 0 black, 0 65px 0 0 black;
+}
+
+/*Strona z czasem rekacji - brak zegara*/
+
+.body_test_bez_zegara {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Bahnschrift;
+    color: #87CEFA;
+    background-color: #182848;
 }
