@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Ćwiczenie szukania obiektu</title>
+    <title>I.C.O - Ćwiczenie szukania obiektu</title>
 </head>
 <body class="body_test">
     <div class="kontyner_test" id="pole">
@@ -57,35 +57,33 @@
         let trudnosc = pobierz_poziom();
 
         if (trudnosc === "Łatwy") {
-            poziom = 0.5;
+            poziom = 0.7;
             min = 0;
             max = 3;
             wiersze = 10;
-            kolumny = 15;
-            rozmiar = 40;
+            kolumny = 20;
+            rozmiar = 35;
         }
         else if (trudnosc === "Średni") {
-            poziom = 0.25;
+            poziom = 0.6;
             min = 2;
             max = 5;
-            wiersze = 13;
+            wiersze = 10;
             kolumny = 20;
-            rozmiar = 30;
+            rozmiar = 32.5;
         }
         else {
-            poziom = 0.1;
+            poziom = 0.5;
             min = 5;
             max = 8;
-            wiersze = 15;
-            kolumny = 25
-            rozmiar = 25;
+            wiersze = 10;
+            kolumny = 20;
+            rozmiar = 30;
         }
         document.getElementById("info").innerHTML = poziomHTML();
     };
 
     //Generowanie obiektu
-    //let min = 3;
-    //let max = 8;
     let liczba = Math.floor(Math.random() * (max - min + 1)) + min;
     let randomowyobiekt = 'obiekt' + liczba;
     let losowaRotacja = Math.floor(Math.random() * 360);

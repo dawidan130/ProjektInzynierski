@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Wynik testu</title>
+    <title>I.C.O - Wynik testu</title>
 </head>
 <body class="body_menu">
     <div class="pasek">
@@ -16,10 +16,11 @@
 
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/info.png onclick="info()" />
+            <a style="font-size: 20px; cursor: pointer;" onclick="wyloguj()">I.C.O. - Interaktywne Ćwiczenie Oczu</a>
+            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="menu()" title="Menu główne" />
             @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
-            <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
-            <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
+        <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
+        <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
         </div>
     </div>
 
@@ -61,6 +62,7 @@
     let pkt = sessionStorage.getItem("pkt");
     let czas = parseFloat(sessionStorage.getItem("czas"));
     let test = sessionStorage.getItem("test");
+    let poziom = sessionStorage.getItem("poziom");
 
     let z_czas = czas.toFixed(3);
 
@@ -81,9 +83,6 @@
             break;
         case 'TestSzukanie':
             nazwa = 'Ćwiczenie szybkości wyszukiwania obiektu';
-            break;
-        case 'TestSledzenie':
-            nazwa = 'Ćwiczenie dokładności śledzenia obiektu';
             break;
     }
 
@@ -113,49 +112,139 @@
     if (pkt === 'null') {
         switch (test) {
             case 'TestReakcja':
-                switch (true) {
-                    case z_czas < 3:
-                        pkt = 5;
-                        break;
-                    case z_czas >= 3 && z_czas < 4:
-                        pkt = 4;
-                        break;
-                    case z_czas >= 4 && z_czas < 6:
-                        pkt = 3;
-                        break;
-                    case z_czas >= 6 && z_czas < 8:
-                        pkt = 2;
-                        break;
-                    case z_czas >= 8 && z_czas < 10:
-                        pkt = 1;
-                        break;
-                    case z_czas >= 10:
-                        pkt = 0;
-                        break;
+                if (poziom === "Łatwy") {
+                    switch (true) {
+                        case z_czas < 4:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 4 && z_czas < 4.5:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 4.5 && z_czas < 5:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 5 && z_czas < 5.5:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 5.5 && z_czas < 6:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 6:
+                            pkt = 0;
+                            break;
+                    }
                 }
-                break;
+                else if (poziom === "Średni") {
+                    switch (true) {
+                        case z_czas < 4.5:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 4.5 && z_czas < 5:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 5 && z_czas < 5.5:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 5.5 && z_czas < 6:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 6 && z_czas < 6.5:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 6.5:
+                            pkt = 0;
+                            break;
+                    }
+                }
+                else {
+                    switch (true) {
+                        case z_czas < 5:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 5 && z_czas < 5.5:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 5.5 && z_czas < 6:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 6 && z_czas < 6.5:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 6.5 && z_czas < 7:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 7:
+                            pkt = 0;
+                            break;
+                    }
+                }
             case 'TestSzukanie':
-                switch (true) {
-                    case z_czas < 15:
-                        pkt = 5;
-                        break;
-                    case z_czas >= 15 && z_czas < 20:
-                        pkt = 4;
-                        break;
-                    case z_czas >= 20 && z_czas < 30:
-                        pkt = 3;
-                        break;
-                    case z_czas >= 30 && z_czas < 45:
-                        pkt = 2;
-                        break;
-                    case z_czas >= 45 && z_czas < 60:
-                        pkt = 1;
-                        break;
-                    case z_czas >= 60:
-                        pkt = 0;
-                        break;
+                if (poziom === "Łatwy") {
+                    switch (true) {
+                        case z_czas < 2:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 2 && z_czas < 3:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 3 && z_czas < 4:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 4 && z_czas < 5:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 5 && z_czas < 6:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 6:
+                            pkt = 0;
+                            break;
+                    }
                 }
-                break;
+                else if (poziom === "Średni") {
+                    switch (true) {
+                        case z_czas < 4:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 4 && z_czas < 5.5:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 5.5 && z_czas < 7:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 7 && z_czas < 8.5:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 8.5 && z_czas < 10:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 10:
+                            pkt = 0;
+                            break;
+                    }
+                }
+                else {
+                    switch (true) {
+                        case z_czas < 30:
+                            pkt = 5;
+                            break;
+                        case z_czas >= 30 && z_czas < 40:
+                            pkt = 4;
+                            break;
+                        case z_czas >= 40 && z_czas < 50:
+                            pkt = 3;
+                            break;
+                        case z_czas >= 50 && z_czas < 60:
+                            pkt = 2;
+                            break;
+                        case z_czas >= 60 && z_czas < 70:
+                            pkt = 1;
+                            break;
+                        case z_czas >= 70:
+                            pkt = 0;
+                            break;
+                    }
+                }
         }
         setTimeout(() => {
             div_info.style.opacity = 1;

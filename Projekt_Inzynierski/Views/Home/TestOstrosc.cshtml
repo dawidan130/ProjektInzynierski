@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Ćwiczenie ostrości wzroku</title>
+    <title>I.C.O - Ćwiczenie ostrości wzroku</title>
 </head>
 <body class="body_test" style="touch-action: manipulation; overflow: hidden;">
     <div class="kontyner_test">
@@ -54,6 +54,7 @@
     let malaWskazowka = document.getElementById("mala");
 
     let rozmiar = "";
+    let liczbaOdp = 0;
 
     //Poziom trudności sterowany lokalnie
     start_Ostrosc();
@@ -63,14 +64,17 @@
 
         if (trudnosc === "Łatwy") {
             rozmiar = "5vh";
+            liczbaOdp = 3;
         }
         else if (trudnosc === "Średni") {
             rozmiar = "3.5vh";
             odpowiedz.style.fontSize = "1.5vh";
+            liczbaOdp = 4;
         }
         else {
             rozmiar = "2vh";
             odpowiedz.style.fontSize = "1.25vh";
+            liczbaOdp = 5;
         }
         document.getElementById("info").innerHTML = poziomHTML();
     };
@@ -117,7 +121,7 @@
                     losowyCiągLiter += losowaLitera;
                 }
                 numer_pytania.innerHTML = 'Pytanie drugie';
-                tresc_pytania.innerHTML = 'Jaki jest poniższy ciąg liter?';
+                tresc_pytania.innerHTML = 'Która z odpowiedzi jest taka sama jak poniższy ciąg liter?';
 
                 odpowiedz.innerHTML = losowyCiągLiter;
 
@@ -136,7 +140,7 @@
                     losowyCiągCyfr += losowaCyfra;
                 }
                 numer_pytania.innerHTML = 'Pytanie trzecie';
-                tresc_pytania.innerHTML = 'Jaki jest poniższy ciąg liczb?';
+                tresc_pytania.innerHTML = 'Która z odpowiedzi jest taka sama jak poniższy ciąg liczb?';
 
                 odpowiedz.innerHTML = losowyCiągCyfr;
 
@@ -152,7 +156,7 @@
                 const losowyZnak = znaki.charAt(losowyIndex);
 
                 numer_pytania.innerHTML = 'Pytanie czwarte';
-                tresc_pytania.innerHTML = 'Jaki znak znajduje się poniżej?';
+                tresc_pytania.innerHTML = 'Która z odpowiedzi jest taka sama jak poniższy znak?';
 
                 odpowiedz.innerHTML = losowyZnak;
 
@@ -192,7 +196,7 @@
                 let zakres = [3, 4, 5, 6, 7, 8].filter(cyfra => cyfra !== odp);
                 let tablica_liczb = [odp];
 
-                while (tablica_liczb.length < 4) {
+                while (tablica_liczb.length < liczbaOdp) {
                     const losowyIndex = Math.floor(Math.random() * zakres.length);
                     const losowaCyfra = zakres.splice(losowyIndex, 1)[0];
                     tablica_liczb.push(losowaCyfra);
@@ -201,33 +205,49 @@
                 return WynikiHTML(tablica_liczb, odp);
 
             case 2:
-                const litery = 'abcdefghijklmnopqrstuvwxyz';
+                let litery = 'abcdefghijklmnopqrstuvwxyz';
                 let tablica_ciagow_liter = [odp];
+                let losowaZmiana1 = Math.floor(Math.random() * 3) + 1;
 
-                while (tablica_ciagow_liter.length < 4) {
+                litery = litery.replace(new RegExp(odp[losowaZmiana1]), '');
+
+                while (tablica_ciagow_liter.length < liczbaOdp) {
                     let losowyCiągLiter = '';
-                    for (let i = 0; i < 5; i++) {
-                        const losowyIndex = Math.floor(Math.random() * litery.length);
-                        const losowaLitera = litery.charAt(losowyIndex);
-                        losowyCiągLiter += losowaLitera;
+                    let losowyIndex = Math.floor(Math.random() * litery.length);
+                    let losowaLitera = litery.charAt(losowyIndex);
+
+                    if (losowaZmiana1 === 4) {
+                        losowyCiągLiter = odp.slice(0, losowaZmiana1) + losowaLitera;
                     }
+                    else {
+                        losowyCiągLiter = odp.slice(0, losowaZmiana1) + losowaLitera + odp.slice(losowaZmiana1 + 1);
+                    }
+                    litery = litery.replace(new RegExp(losowaLitera), '');
                     tablica_ciagow_liter.push(losowyCiągLiter);
                 }
 
                 return WynikiHTML(tablica_ciagow_liter, odp);
 
             case 3:
-                const liczby = '0123456789';
+                let liczby = '0123456789';
                 let tablica_ciagow_cyfr = [odp];
+                let losowaZmiana2 = Math.floor(Math.random() * 3) + 1;
 
-                while (tablica_ciagow_cyfr.length < 4) {
-                    let losowyCiągCyfr = '';
-                    for (let i = 0; i < 5; i++) {
-                        const losowyIndex = Math.floor(Math.random() * liczby.length);
-                        const losowaCyfra = liczby.charAt(losowyIndex);
-                        losowyCiągCyfr += losowaCyfra;
+                liczby = liczby.replace(new RegExp(odp[losowaZmiana2]), '');
+
+                while (tablica_ciagow_cyfr.length < liczbaOdp) {
+                    let losowyCiągLiczb = '';
+                    let losowyIndex = Math.floor(Math.random() * liczby.length);
+                    let losowaLiczba = liczby.charAt(losowyIndex);
+
+                    if (losowaZmiana2 === 4) {
+                        losowyCiągLiczb = odp.slice(0, losowaZmiana2) + losowaLiczba;
                     }
-                    tablica_ciagow_cyfr.push(losowyCiągCyfr);
+                    else {
+                        losowyCiągLiczb = odp.slice(0, losowaZmiana2) + losowaLiczba + odp.slice(losowaZmiana2 + 1);
+                    }
+                    liczby = liczby.replace(new RegExp(losowaLiczba), '');
+                    tablica_ciagow_cyfr.push(losowyCiągLiczb);
                 }
 
                 return WynikiHTML(tablica_ciagow_cyfr, odp);
@@ -236,7 +256,7 @@
                 const znaki = '?!#$%^&*()-=+<>\/[]{}';
                 let tablica_znakow = [odp];
 
-                while (tablica_znakow.length < 4) {
+                while (tablica_znakow.length < liczbaOdp) {
                     let losowyZnak = '';
 
                     const losowyIndex = Math.floor(Math.random() * znaki.length);
@@ -253,7 +273,7 @@
                 let liczby_kropek = [3, 4, 5, 6, 7, 8].filter(kropka => kropka !== odp);
                 let tablica_kropek = [odp];
 
-                while (tablica_kropek.length < 4) {
+                while (tablica_kropek.length < liczbaOdp) {
                     const losowyIndex = Math.floor(Math.random() * liczby_kropek.length);
                     const losowaKropka = liczby_kropek.splice(losowyIndex, 1)[0];
                     tablica_kropek.push(losowaKropka);

@@ -198,19 +198,25 @@
 }
 
 .prawo img {
-    max-height: 50px;
+    max-height: 75px;
     cursor: pointer;
     margin-left: auto;
     transition: linear 0.3s;
 }
 
 .prawo img:hover {
-    transform: scale(125%);
+    transform: scale(110%);
 }
 
 .lewo img {
     max-height: 75px;
-    cursor: default;
+    cursor: pointer;
+    margin-right: auto;
+    transition: linear 0.3s;
+}
+
+.lewo img:hover {
+    transform: scale(110%);
 }
 
 .kontener-ikony {
@@ -294,6 +300,10 @@
     font-size: 30px;
     font-weight: bold;
     user-select: none;
+}
+
+.info_poziom input[type="radio"] {
+    transform: scale(1.5);
 }
 
 .info_czas {

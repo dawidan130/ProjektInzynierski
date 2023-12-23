@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Info</title>
+    <title>I.C.O - Informacje</title>
 </head>
 <body class="body_menu">
     <div class="pasek">
@@ -17,10 +17,11 @@
             <a style="font-size: 20px;">Poznaj rodzaje ćwiczeń oraz zasady w nich panujące</a>
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/logo.png onclick="menu()" title="Powrót do menu"/>
+            <a style="font-size: 20px; cursor: pointer;" onclick="menu()">Menu główne</a>
+            <img src=~/Obrazy/logo.png onclick="menu()" title="Powrót do menu" />
             @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
-            <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
-            <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
+        <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
+        <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
         </div>
     </div>
 
@@ -45,9 +46,9 @@
                     Ćwiczenie składa się z 5 kolejnych pytań, w których wymagane jest zaznaczenie poprawnej odpowiedzi. Wszystkie pytania oraz odpowiedzi generowane są losowo.
                 </td>
                 <td class="opis_testu">
-                    Łatwy: Duża czcionka. <br />
-                    Średni: Normalna czcionka. <br />
-                    Trudny: Mała czcionka.
+                    Łatwy: Duża czcionka. 3 odpowiedzi do wyboru.<br />
+                    Średni: Normalna czcionka. 4 odpowiedzi do wyboru. <br />
+                    Trudny: Mała czcionka. 5 odpowiedzi do wyboru.
                 </td>
             </tr>
             <tr>
@@ -63,7 +64,7 @@
                     <img src="~/Obrazy/TestIshary.png">
                 </td>
                 <td class="opis_testu">
-                    Ćwiczenie składa się z 5 wyświetlanych tablic Isihiary. Wymagane jest odczytanie z niej cyrfy lub liczby i wpisanie w polu znajdującym się pod obrazem.
+                    Ćwiczenie składa się z 5 wyświetlanych tablic Isihiary. Wymagane jest odczytanie z nich cyrfy lub liczby i wpisanie w polu znajdującym się pod obrazem.
                 </td>
                 <td class="opis_testu">
                     Łatwy: 1 cyfra do rozpoznania, wysoki kontrast. <br />
@@ -76,7 +77,7 @@
                     <img src="~/Obrazy/TestBarwy.png">
                 </td>
                 <td class="opis_testu">
-                    Ćwiczenie składa się z 5 kolejno losowo generowanych tablic z barwami gdzie jedna z nich różni się od reszty swoją intensywnością. Wymagane jest kliknięcie w różniącą się barwę.
+                    Ćwiczenie składa się z 5 kolejno losowo generowanych tablic z barwami, gdzie jedna z nich różni się od reszty swoją intensywnością. Należy kliknąć spośród wszystkich barw w tą, która różni się od pozostałych.
                 </td>
                 <td class="opis_testu">
                     Łatwy: Duża różnica w intensywności. <br />
@@ -89,7 +90,7 @@
                     <img src="~/Obrazy/testruch.png">
                 </td>
                 <td class="opis_kategoria" colspan="2">
-                    Ćwiczenia opierające się na ruchu oczu
+                    Ćwiczenia opierające się na ruchu gałek ocznych
                 </td>
             </tr>
             <tr>
@@ -113,9 +114,9 @@
                     Ćwiczenie polega na odnalezieniu wskazanej figury na planszy z rozmaitymi figurami.
                 </td>
                 <td class="opis_testu">
-                    Łatwy: Bardziej różniące się figury, mała ilość figur na planszy. <br />
-                    Średni: Różniące się figury, średnia ilość figur na planszy. <br />
-                    Trudny: Podobne figury, duża ilość figur na planszy.
+                    Łatwy: Bardziej różniące się figury, mała liczba figur na planszy. <br />
+                    Średni: Różniące się figury, średnia liczba figur na planszy. <br />
+                    Trudny: Podobne figury, duża liczba figur na planszy.
                 </td>
             </tr>
         </table>

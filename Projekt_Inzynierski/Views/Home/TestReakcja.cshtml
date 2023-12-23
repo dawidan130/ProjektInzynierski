@@ -8,19 +8,19 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Ćwiczenie czasu reakcji</title>
+    <title>I.C.O - Ćwiczenie czasu reakcji</title>
 </head>
 <body class="body_test_bez_zegara" id="body">
     <div class="kontyner_test" id="pole">
         <div class="tekst_test">
-            Klikaj w tak wyglądające obiekty:
+            Zadanie polega na klikaniu w punkty zaprezentowane poniżej:
         </div>
         <div class="kontener-reakcja">
-            <span class="kropka" id="0" onclick="usuntym(0)">1</span>
-            <span class="kropka" id="1" onclick="usuntym(1)">2</span>
-            <span class="kropka" id="2" onclick="usuntym(2)">3</span>
-            <span class="kropka" id="3" onclick="usuntym(3)">4</span>
-            <span class="kropka" id="4" onclick="usuntym(4)">5</span>
+            <span class="kropka" id="0" onclick="usuntym(0)"></span>
+            <span class="kropka" id="1" onclick="usuntym(1)"></span>
+            <span class="kropka" id="2" onclick="usuntym(2)"></span>
+            <span class="kropka" id="3" onclick="usuntym(3)"></span>
+            <span class="kropka" id="4" onclick="usuntym(4)"></span>
         </div>
         <div class="tekst_test" style="margin-bottom: 25px; text-align: center;">
             Po wciśnieciu start obiekty będą się pojawiać w losowych miejscach ekranu
@@ -28,7 +28,7 @@
         <button class="przycisk_wyniki" style="font-size: 25px; min-height: 60px; margin-top: 25px;" id="przycisk" onclick="start()">Start</button>
     </div>
 
-    <button class="powrot" onclick="menu()" title="Anuluj ćwiczenie">Powrót do menu</button>
+    <button class="powrot" id="powrot" onclick="menu()" title="Anuluj ćwiczenie">Powrót do menu</button>
 
     <div class="info_poziom" id="info" title="Aktulany poziom ćwiczenia"></div>
 </body>

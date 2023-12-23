@@ -8,20 +8,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/Site.css">
-    <title>I.P.O - Menu</title>
+    <title>I.C.O - Menu</title>
 </head>
 <body class="body_menu">
     <div class="pasek">
         <div class="lewo">
-            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="wyloguj()" title="Strona główna"/>
             @*<a style="font-size: 20px;">Witaj "Nazwa Użytkownika"!</a>*@
-            <a style="font-size: 20px;">I.P.O. - Internetowa Pielęgnacja Oczu</a>
+            <img src=~/Obrazy/info.png onclick="info()" title="Opisy ćwiczeń" />
+            <a style="font-size: 20px; cursor: pointer;" onclick="info()">Opisy ćwiczeń</a>
         </div>
         <div class="prawo">
-            <img src=~/Obrazy/info.png onclick="info()" title="Opisy ćwiczeń"/>
+            <a style="font-size: 20px; cursor: pointer;" onclick="wyloguj()">I.C.O. - Interaktywne Ćwiczenie Oczu</a>
+            <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="wyloguj()" title="Strona główna" />
             @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
-            <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
-            <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
+        <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
+        <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
         </div>
     </div>
 
