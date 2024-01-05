@@ -69,6 +69,9 @@
     //ustawianie poziomu bez bazy
     function poziom() {
         let poziom = sessionStorage.getItem("poziom");
+        if (poziom === null) {
+            poziom = "Średni";
+        }
         lista.innerHTML = poziomHTML(poziom);
     }
 

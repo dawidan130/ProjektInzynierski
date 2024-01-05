@@ -15,10 +15,6 @@
             -webkit-appearance: none;
             margin: 0;
         }
-
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
     </style>
 </head>
 <body class="body_test">
@@ -30,7 +26,7 @@
 
         </div>
         <label id="label" for="cyfra" style="transition: 0.4s ease-in-out">Wprowadź cyfrę:</label>
-        <input style="border-radius: 10px; -webkit-appearance: none;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
+        <input style="border-radius: 10px; -moz-appearance: textfield;" type="number" id="cyfra" name="cyfra" placeholder="" disabled>
         <button style="height: 40px; margin-top: 10px; opacity: 0;" id="przycisk1" class="przycisk_wyniki" disabled onclick="sprawdz()">Sprawdź</button>
         <button style="height: 40px; margin-top: 10px; opacity: 0;" id="przycisk2" class="przycisk_wyniki" disabled onclick="kolejnaTablica()">Dalej</button>
     </div>
@@ -145,10 +141,12 @@
         if (isNaN(czyCyfra)) {
             event.target.value = '';
         }
-        else if (wpisanaWartosc.length > poziom)
-        {
+        else if (wpisanaWartosc.length > poziom) {
             wpisanaWartosc = wpisanaWartosc.slice(0, poziom);
             event.target.value = wpisanaWartosc;
+        }
+        else if (wpisanaWartosc < 0) {
+            event.target.value = '';
         }
     });
 

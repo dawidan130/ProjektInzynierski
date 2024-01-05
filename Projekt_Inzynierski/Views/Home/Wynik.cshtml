@@ -114,66 +114,66 @@
             case 'TestReakcja':
                 if (poziom === "Łatwy") {
                     switch (true) {
-                        case z_czas < 4:
+                        case z_czas <= 2.2:
                             pkt = 5;
                             break;
-                        case z_czas >= 4 && z_czas < 4.5:
+                        case z_czas > 2.2 && z_czas <= 2.95:
                             pkt = 4;
                             break;
-                        case z_czas >= 4.5 && z_czas < 5:
+                        case z_czas > 2.95 && z_czas <= 3.7:
                             pkt = 3;
                             break;
-                        case z_czas >= 5 && z_czas < 5.5:
+                        case z_czas > 3.7 && z_czas <= 4.45:
                             pkt = 2;
                             break;
-                        case z_czas >= 5.5 && z_czas < 6:
+                        case z_czas > 4.45 && z_czas <= 5.2:
                             pkt = 1;
                             break;
-                        case z_czas >= 6:
+                        case z_czas > 5.2:
                             pkt = 0;
                             break;
                     }
                 }
                 else if (poziom === "Średni") {
                     switch (true) {
-                        case z_czas < 4.5:
+                        case z_czas <= 2.5:
                             pkt = 5;
                             break;
-                        case z_czas >= 4.5 && z_czas < 5:
+                        case z_czas > 2.5 && z_czas <= 3.25:
                             pkt = 4;
                             break;
-                        case z_czas >= 5 && z_czas < 5.5:
+                        case z_czas > 3.25 && z_czas <= 4:
                             pkt = 3;
                             break;
-                        case z_czas >= 5.5 && z_czas < 6:
+                        case z_czas > 4 && z_czas <= 4.75:
                             pkt = 2;
                             break;
-                        case z_czas >= 6 && z_czas < 6.5:
+                        case z_czas > 4.75 && z_czas <= 5.5:
                             pkt = 1;
                             break;
-                        case z_czas >= 6.5:
+                        case z_czas > 5.5:
                             pkt = 0;
                             break;
                     }
                 }
                 else {
                     switch (true) {
-                        case z_czas < 5:
+                        case z_czas <= 2.9:
                             pkt = 5;
                             break;
-                        case z_czas >= 5 && z_czas < 5.5:
+                        case z_czas > 2.9 && z_czas <= 3.7:
                             pkt = 4;
                             break;
-                        case z_czas >= 5.5 && z_czas < 6:
+                        case z_czas > 3.7 && z_czas <= 4.5:
                             pkt = 3;
                             break;
-                        case z_czas >= 6 && z_czas < 6.5:
+                        case z_czas > 4.5 && z_czas <= 5.3:
                             pkt = 2;
                             break;
-                        case z_czas >= 6.5 && z_czas < 7:
+                        case z_czas > 5.3 && z_czas <= 6.1:
                             pkt = 1;
                             break;
-                        case z_czas >= 7:
+                        case z_czas > 6.1:
                             pkt = 0;
                             break;
                     }
@@ -181,66 +181,66 @@
             case 'TestSzukanie':
                 if (poziom === "Łatwy") {
                     switch (true) {
-                        case z_czas < 2:
+                        case z_czas <= 2.3:
                             pkt = 5;
                             break;
-                        case z_czas >= 2 && z_czas < 3:
+                        case z_czas > 2.3 && z_czas <= 3.7:
                             pkt = 4;
                             break;
-                        case z_czas >= 3 && z_czas < 4:
+                        case z_czas > 3.7 && z_czas <= 5.1:
                             pkt = 3;
                             break;
-                        case z_czas >= 4 && z_czas < 5:
+                        case z_czas > 5.1 && z_czas <= 6.5:
                             pkt = 2;
                             break;
-                        case z_czas >= 5 && z_czas < 6:
+                        case z_czas > 6.5 && z_czas <= 7.9:
                             pkt = 1;
                             break;
-                        case z_czas >= 6:
+                        case z_czas > 7.9:
                             pkt = 0;
                             break;
                     }
                 }
                 else if (poziom === "Średni") {
                     switch (true) {
-                        case z_czas < 4:
+                        case z_czas <= 4.3:
                             pkt = 5;
                             break;
-                        case z_czas >= 4 && z_czas < 5.5:
+                        case z_czas > 4.3 && z_czas <= 7.5:
                             pkt = 4;
                             break;
-                        case z_czas >= 5.5 && z_czas < 7:
+                        case z_czas > 7.5 && z_czas <= 10.7:
                             pkt = 3;
                             break;
-                        case z_czas >= 7 && z_czas < 8.5:
+                        case z_czas > 10.7 && z_czas <= 13.9:
                             pkt = 2;
                             break;
-                        case z_czas >= 8.5 && z_czas < 10:
+                        case z_czas > 13.9 && z_czas <= 17.1:
                             pkt = 1;
                             break;
-                        case z_czas >= 10:
+                        case z_czas > 17.1:
                             pkt = 0;
                             break;
                     }
                 }
                 else {
                     switch (true) {
-                        case z_czas < 30:
+                        case z_czas <= 22.5:
                             pkt = 5;
                             break;
-                        case z_czas >= 30 && z_czas < 40:
+                        case z_czas > 22.5 && z_czas <= 43.8:
                             pkt = 4;
                             break;
-                        case z_czas >= 40 && z_czas < 50:
+                        case z_czas > 43.8 && z_czas <= 65.1:
                             pkt = 3;
                             break;
-                        case z_czas >= 50 && z_czas < 60:
+                        case z_czas > 65.1 && z_czas <= 85.4:
                             pkt = 2;
                             break;
-                        case z_czas >= 60 && z_czas < 70:
+                        case z_czas > 85.4 && z_czas <= 106.7:
                             pkt = 1;
                             break;
-                        case z_czas >= 70:
+                        case z_czas > 106.7:
                             pkt = 0;
                             break;
                     }
@@ -256,7 +256,7 @@
             div_odnosniki.style.transform = "translateY(0)";
         }, 2500);
 
-        div_info.innerHTML = '<div>Wynik ustalony na podstawie uzsykanego czasu</div>';
+        div_info.innerHTML = '<div>Wynik ustalony na podstawie uzyskanego czasu</div>';
     }
 
     setTimeout(() => {

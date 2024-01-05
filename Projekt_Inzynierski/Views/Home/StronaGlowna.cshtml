@@ -89,7 +89,7 @@
 
 <script type="text/javascript" src="~/Scripts/funkcje.js"></script>
 
-<script>
+@*<script>
     //Logowanie
     document.getElementById('logowanie').addEventListener('click', function () {
         document.getElementById('oknoLogowania').style.display = 'flex';
@@ -109,19 +109,19 @@
 
         //rozwiązanie tymczasowe bez bazy danych (ma na celu stworzenie komunikatów błędów, funkcjonalność logowania prawdopodobnie będzie działać na innej zasadzie)
         //-----
-        //let testowylogin = "testowymail@gmail.com";
-        //let testowylogin2 = "123";
+        let testowylogin = "testowymail@gmail.com";
+        let testowylogin2 = "123";
 
-        //if (loginInput.value === testowylogin || loginInput.value === testowylogin2) {
-        //    komunikatL.style.color = "green";
-        //    komunikatL.textContent = "Zalogowano pomyślnie!";
+        if (loginInput.value === testowylogin || loginInput.value === testowylogin2) {
+            komunikatL.style.color = "green";
+            komunikatL.textContent = "Zalogowano pomyślnie!";
 
-        //    setTimeout(zaloguj, 1000);
-        //}
-        //else {
-        //    komunikatL.style.color = "red";
-        //    komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
-        //}
+            setTimeout(zaloguj, 1000);
+        }
+        else {
+            komunikatL.style.color = "red";
+            komunikatL.textContent = "Błąd logowania! Sprawdź dane.";
+        }
         //póki co dwie opcje ewentualna rozbudowa (np. brak "małpy" w loginie, nieistniejący login, błędne hasło)
         //-----
 
@@ -152,12 +152,10 @@
     const mailInput = document.getElementById("e_mail");
     const hasloRejInput = document.getElementById("haslo_rej");
     const pothasRejInput = document.getElementById("pothaslo");
-
-    //Niewykorzystane zmienne formularza
-    //const pseudoInput = document.getElementById("pseudonim");
-    //const imieInput = document.getElementById("imie");
-    //const nazwiskoInput = document.getElementById("nazwisko");
-    //const dataInput = document.getElementById("data_urodzenia");
+    const pseudoInput = document.getElementById("pseudonim");
+    const imieInput = document.getElementById("imie");
+    const nazwiskoInput = document.getElementById("nazwisko");
+    const dataInput = document.getElementById("data_urodzenia");
 
     const komunikatH = document.getElementById("komunikat_hasla");
     const komunikatR = document.getElementById("komunikat_rejestrowanie");
@@ -185,8 +183,8 @@
         let email = mailInput.value;
         let haslo = hasloRejInput.value;
         let pothaslo = pothasRejInput.value;
-        //let data = new Date(dataInput.value);
-        //let dzisiaj = new Date();
+        let data = new Date(dataInput.value);
+        let dzisiaj = new Date();
 
         if (email === "" || haslo === "" || pothaslo === "") {
             komunikatR.style.color = "red";
@@ -206,12 +204,12 @@
             return;
         }
 
-        //Sprawdzanie daty urodziny
-        //if (data >= dzisiaj) {
-        //    komunikatR.style.color = "red";
-        //    komunikatR.textContent = "Błędna data urodzenia!";
-        //    return;
-        //}
+        Sprawdzanie daty urodziny
+        if (data >= dzisiaj) {
+            komunikatR.style.color = "red";
+            komunikatR.textContent = "Błędna data urodzenia!";
+            return;
+        }
 
         komunikatR.style.color = "green";
         komunikatR.textContent = "Pomyślnie zarejestrowano!";
@@ -225,13 +223,13 @@
         hasloRejInput.value = "";
         pothasRejInput.value = "";
 
-        //pseudoInput.value = "";
-        //imieInput.value = "";
-        //nazwiskoInput.value = "";
-        //dataInput.value = "";
+        pseudoInput.value = "";
+        imieInput.value = "";
+        nazwiskoInput.value = "";
+        dataInput.value = "";
 
         komunikatH.textContent = "";
         komunikatR.style.color = "#87CEFA";
         komunikatR.textContent = "*pola obowiązkowe";
     });
-</script>
+</script>*@

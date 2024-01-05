@@ -50,18 +50,22 @@
     });
 
     let rozmiar = "";
+    let margines = window.innerHeight;
 
     function start_Reakcja() {
         let trudnosc = pobierz_poziom();
 
         if (trudnosc === "Łatwy") {
             rozmiar = "10vh";
+            margines = margines / 10;
         }
         else if (trudnosc === "Średni") {
             rozmiar = "7.5vh";
+            margines = margines / 13,33;
         }
         else {
             rozmiar = "5vh";
+            margines = margines / 20;
         }
 
         let kropki = document.querySelectorAll('.kropka');
@@ -120,15 +124,15 @@
         let wysokosc = window.innerHeight;
         let szerokosc = window.innerWidth;
 
-        let randomX = Math.floor(Math.random() * (szerokosc - 105));
-        let randomY = Math.floor(Math.random() * (wysokosc - 105));
+        let randomX = Math.floor(Math.random() * (szerokosc - margines));
+        let randomY = Math.floor(Math.random() * (wysokosc - margines));
 
         //Zabezpieczenie w przypadku wylosowania zera
         if (randomX === 0) {
-            randomX = 110;
+            randomX = margines;
         }
         if (randomY === 0) {
-            randomY = 110;
+            randomY = margines;
         }
 
         return { x: randomX, y: randomY };
