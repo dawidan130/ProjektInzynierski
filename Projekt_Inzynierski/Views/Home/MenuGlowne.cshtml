@@ -71,6 +71,7 @@
         let poziom = sessionStorage.getItem("poziom");
         if (poziom === null) {
             poziom = "Średni";
+            sessionStorage.setItem("poziom", "Średni");
         }
         lista.innerHTML = poziomHTML(poziom);
     }
