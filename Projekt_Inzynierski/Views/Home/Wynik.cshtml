@@ -16,11 +16,8 @@
 
         </div>
         <div class="prawo">
-            <a style="font-size: 20px; cursor: pointer;" onclick="wyloguj()">I.C.O. - Interaktywne Ćwiczenie Oczu</a>
+            <a style="font-size: 24px; cursor: pointer;" onclick="wyloguj()">I.C.O. - Interaktywne Ćwiczenie Oczu</a>
             <img src=~/Obrazy/logo.png style="cursor: pointer; " onclick="menu()" title="Menu główne" />
-            @*<img src=~/Obrazy/stat.png onclick="statystyki()" />
-        <img src=~/Obrazy/opcje.png onclick="ustawienia()" />
-        <img src=~/Obrazy/logout.png onclick="wyloguj()" />*@
         </div>
     </div>
 
@@ -46,7 +43,7 @@
 
             </div>
             <div onclick="menu()" title="Powrót do menu">
-                <a style="user-select: none; cursor: pointer;">Menu główne</a>
+                <a style="user-select: none; cursor: pointer; font-size: 24px;">Menu główne</a>
                 <img src="~/Obrazy/logo.png"/>
             </div>
         </div>
@@ -86,7 +83,7 @@
             break;
     }
 
-    document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 20px;">' + nazwa + '</a>';
+    document.getElementById('logo_gora').innerHTML = '<img src="/Obrazy/' + test + '.png" style="cursor: default;" /><a style="font-size: 24px;">' + nazwa + '</a>';
 
     const div_buzka = document.getElementById('buzka');
     const div_wynik = document.getElementById('wynik');
@@ -270,5 +267,5 @@
     div_wynik.innerHTML = '<div>Wynik: ' + pkt + '/5</div>';
     div_czas.innerHTML = '<div>Czas: ' + z_czas + 's</div>';
 
-    document.getElementById('logo_ponownie').innerHTML = '<div style="padding: 0;" onclick="uruchom_ponownie()" title="Uruchom ćwiczenie" ><a style="user-select: none; cursor: pointer;">Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png"/></div>';
+    document.getElementById('logo_ponownie').innerHTML = '<div style="padding: 0;" onclick="uruchom_ponownie()" title="Uruchom ćwiczenie" ><a style="user-select: none; cursor: pointer; font-size: 24px;">Spróbuj ponownie</a><img src="/Obrazy/' + test + '.png"/></div>';
 </script>

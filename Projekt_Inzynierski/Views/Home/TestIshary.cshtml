@@ -74,15 +74,23 @@
         przycisk.style.transform = "scale(1)";
     };
 
-    let liczba = 0;
+    let rand = 0;
+    let path = '';
 
     let liczbyL = [3, 8, 5, 4, 9, 2, 1, 6, 7];
     let liczbyS = [12, 43, 96, 77, 53, 15, 25, 68, 84];
     let liczbyT = [435, 111, 853, 123, 651, 590, 282, 338, 717];
 
+    let liczby = [];
+    let indeks = [];
+    let popodp = 0;
+
+    let punkty = 0;
+    let iteracja = 0;
+
     document.getElementById('obraz').innerHTML = pobierzObraz();
 
-    let obraz = document.getElementById(liczba);
+    let obraz = document.getElementById(indeks[iteracja]);
     let input = document.getElementById('cyfra');
     let label = document.getElementById('label');
 
@@ -90,30 +98,31 @@
     let koniec;
     let czas_lacznie = 0;
 
-    let punkty = 0;
-    let iteracja = 0;
-
     animacjaObrazu();
 
     function pobierzObraz() {
-        let path = '';
-        let odp = [];
 
-        switch (poziom) {
-            case 1:
-                path = '/Obrazy/Tablice/L/';
-                break;
-            case 2:
-                path = '/Obrazy/Tablice/S/';
-                break;
-            case 3:
-                path = '/Obrazy/Tablice/T/';
-                break;
+        if (iteracja === 0) {
+            for (var i = 0; i < 9; i++) liczby[i] = i;
+            for (let i = 0; i < 5; i++) indeks[i] = liczby.splice(Math.floor(Math.random() * liczby.length), 1)[0];
+            switch (poziom) {
+                case 1:
+                    path = '/Obrazy/Tablice/L/';
+                    odp = liczbyL;
+                    break;
+                case 2:
+                    path = '/Obrazy/Tablice/S/';
+                    odp = liczbyS;
+                    break;
+                case 3:
+                    path = '/Obrazy/Tablice/T/';
+                    odp = liczbyT;
+                    break;
+            }
         }
 
-        liczba = Math.floor(Math.random() * 9) + 1;
-
-        let str = '<img id=' + liczba + ' src="' + path + liczba + '.png">';
+        let str = '<img id=' + indeks[iteracja] + ' src="' + path + indeks[iteracja] + '.png">';
+        popodp = odp[indeks[iteracja]];
 
         return str;
     }
@@ -166,26 +175,14 @@
             duzaWskazowka.style.animationPlayState = 'paused';
             malaWskazowka.style.animationPlayState = 'paused';
 
-            switch (poziom) {
-                case 1:
-                    odp = liczbyL;
-                    break;
-                case 2:
-                    odp = liczbyS;
-                    break;
-                case 3:
-                    odp = liczbyT;
-                    break;
-            }
-
-            if (parseFloat(input.value) === odp[liczba - 1]) {
+            if (parseFloat(input.value) === popodp) {
                 input.style.borderColor = '#39FF14';
                 label.textContent = 'Dobrze!';
                 punkty += 1;
             }
             else {
                 input.style.borderColor = '#FF3131';
-                label.textContent = 'Prawidłowa odpowiedź to: ' + odp[liczba - 1];
+                label.textContent = 'Prawidłowa odpowiedź to: ' + popodp;
             }
             input.disabled = true;
             if (iteracja === 4) {
@@ -221,7 +218,7 @@
             obraz.innerHTML = '';
             przycisk.innerHTML = 'Sprawdź';
             document.getElementById('obraz').innerHTML = pobierzObraz();
-            obraz = document.getElementById(liczba);
+            obraz = document.getElementById(indeks[iteracja]);
             animacjaObrazu();
             input.disabled = false;
         }
